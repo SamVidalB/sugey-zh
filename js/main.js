@@ -705,12 +705,12 @@
 
     if (shouldShow) {
       btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-      btn.classList.add('opacity-100', 'translate-y-0');
+      btn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
       btn.setAttribute('aria-hidden', 'false');
       btn.tabIndex = 0;
     } else {
       btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-      btn.classList.remove('opacity-100', 'translate-y-0');
+      btn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
       btn.setAttribute('aria-hidden', 'true');
       btn.tabIndex = -1;
     }
@@ -719,8 +719,9 @@
   function scrollToTop() {
     if (typeof global.scrollTo === 'function') {
       global.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (document.documentElement) {
-      document.documentElement.scrollTop = 0;
+    } else {
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
     }
   }
 

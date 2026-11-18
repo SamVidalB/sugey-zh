@@ -192,7 +192,6 @@
       'modal.book': 'Agendar este tratamiento',
 
       'whatsapp.aria': 'Atención inmediata por WhatsApp con Dra. Sugey',
-      'whatsapp.badge': 'WhatsApp',
       'whatsapp.tooltip': '¿Tienes dudas? Escríbenos por WhatsApp',
 
       'footer.desc': 'Práctica odontológica especializada enfocada en la longevidad biomecánica, precisión estética y cuidado personalizado en Santiago de Cali.',
@@ -398,7 +397,6 @@
       'modal.book': 'Schedule this treatment',
 
       'whatsapp.aria': 'Immediate WhatsApp consultation with Dr. Sugey',
-      'whatsapp.badge': 'WhatsApp',
       'whatsapp.tooltip': 'Questions? Message us on WhatsApp',
 
       'footer.desc': 'Specialized dental practice focused on biomechanical longevity, aesthetic precision, and personalized care in Santiago de Cali.',
