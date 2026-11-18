@@ -1,0 +1,1412 @@
+<!DOCTYPE html><html lang="es" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugey ZH — Rehabilitación Oral &amp; Alta Estética Dental</title>
+  <meta name="description" content="Consultorio odontológico de alta especialidad en rehabilitación oral, implantes guiados 3D y diseño de sonrisa con estándares suizos de precisión y confort.">
+
+  <!-- Tailwind CDN & Shared Design System Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#16796F',
+        'accent-hover': '#116058',
+        'accent-light': '#E6F4F1',
+        'whatsapp': '#25D366',
+        'light-primary': '#1C2430',
+        'light-on-primary': '#FFFFFF',
+        'light-secondary': '#505A69',
+        'light-on-secondary': '#FFFFFF',
+        'light-surface': '#FAFAF7',
+        'light-surface-card': '#FFFFFF',
+        'light-surface-subtle': '#F2F2ED',
+        'light-on-surface': '#191F28',
+        'light-on-surface-variant': '#5F6B7A',
+        'light-outline': '#E2E5E9',
+        'light-outline-focus': '#16796F',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'gutter-2xl': '48px',
+        'section': '80px',
+        'section-lg': '112px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['54px', { lineHeight: '62px', letterSpacing: '-1px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-md': ['40px', { lineHeight: '48px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'display-md-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '30px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['15px', { lineHeight: '20px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.4px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+
+  <!-- Typography: Plus Jakarta Sans (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+  <style>
+    /* Smooth custom styling for before-after slider */
+    .comparison-slider-container {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+    }
+    .comparison-slider-before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    /* Brand logo SVG styles */
+    .brand-mark-path {
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased min-h-[1024px] selection:bg-accent selection:text-white" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+  <!-- Top Announcement Bar / Clinical Info -->
+  <aside class="bg-light-primary text-white/90 text-xs py-2 px-4 border-b border-white/10 hidden md:block">
+    <div class="max-w-7xl mx-auto flex items-center justify-between font-label">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-accent-light">location_on</span>
+          <span>Calle 93B # 11A - 84, Consultorio 502, Bogotá</span>
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-accent-light">schedule</span>
+          <span>Lun - Vie: 8:00 AM - 6:00 PM | Sáb: 8:00 AM - 1:00 PM</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5 text-accent-light font-medium">
+          <span class="material-symbols-outlined text-[15px]">verified</span>
+          <span>Especialista Certificada en Rehabilitación Oral</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-light-surface/90 backdrop-blur-md border-b border-light-outline/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo (Vectorized SVG based on original brand identity) -->
+      <a href="#inicio" class="flex items-center gap-3.5 group" aria-label="Sugey ZH Rehabilitación Oral - Inicio">
+        <div class="w-11 h-11 rounded-md bg-light-primary text-white flex items-center justify-center p-2 shadow-sm transition-transform duration-state-change group-hover:scale-105">
+          <!-- Vector extraction of the sculpted tooth-flower symbol from client assets -->
+          <svg viewBox="0 0 100 130" class="w-full h-full fill-current text-[#7FB069]">
+            <path d="M12 28 C 8 45, 25 58, 48 42 C 55 46, 68 50, 78 40 C 92 26, 88 8, 70 8 C 55 8, 38 18, 28 22 C 18 20, 14 22, 12 28 Z" fill="#D4E79E"></path>
+            <path d="M48 42 C 42 48, 40 55, 46 62 C 52 70, 52 78, 44 85 C 38 90, 36 102, 44 110 C 52 118, 62 112, 60 100 C 58 88, 68 80, 68 70 C 68 58, 56 46, 48 42 Z" fill="#D4E79E"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline font-bold text-[17px] tracking-wider uppercase text-light-primary leading-tight">
+            Sugey Zúñiga H
+          </span>
+          <span class="font-label text-xs tracking-widest uppercase text-light-on-surface-variant font-medium">
+            Rehabilitación Oral
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 font-headline text-sm font-semibold text-light-primary">
+        <a href="#inicio" class="text-accent transition-colors">Inicio</a>
+        <a href="#nosotros" class="hover:text-accent transition-colors" data-i18n="nav.about">Nosotros</a>
+        <a href="#servicios" class="hover:text-accent transition-colors" data-i18n="nav.services">Servicios Especializados</a>
+        <a href="#casos" class="hover:text-accent transition-colors" data-i18n="nav.cases">Casos Clínicos</a>
+        <a href="#testimonios" class="hover:text-accent transition-colors" data-i18n="nav.reviews">Opiniones</a>
+        <a href="#contacto" class="hover:text-accent transition-colors" data-i18n="nav.contact">Ubicación &amp; Cita</a>
+      </nav>
+
+      <!-- Header Controls: Language Switcher + Primary Appointment Button -->
+      <div class="flex items-center gap-3.5">
+        <!-- Language Switcher Pill -->
+        <div class="flex items-center bg-light-surface-subtle p-1 rounded-full border border-light-outline text-xs font-headline font-semibold">
+          <button id="lang-es" onclick="switchLanguage(&#39;es&#39;)" class="px-2.5 py-1 rounded-full bg-light-primary text-white transition-all shadow-xs" title="Español">
+            ES
+          </button>
+          <button id="lang-en" onclick="switchLanguage(&#39;en&#39;)" class="px-2.5 py-1 rounded-full text-light-on-surface-variant hover:text-light-primary transition-all" title="English">
+            EN
+          </button>
+        </div>
+
+        <!-- Appointment CTA Button -->
+        <a href="#contacto" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-full font-headline text-label-lg transition-all duration-state-change shadow-sm hover:shadow">
+          <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+          <span data-design-text-token="label-lg" data-i18n="cta.book">Agendar Cita</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-full border border-light-outline flex items-center justify-center text-light-primary hover:bg-light-surface-subtle transition-colors" aria-label="Abrir menú de navegación">
+          <span id="menu-icon" class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-light-outline bg-light-surface px-6 py-5 space-y-4 shadow-xl">
+      <nav class="flex flex-col space-y-3 font-headline text-base font-semibold text-light-primary">
+        <a href="#inicio" onclick="toggleMobileMenu()" class="py-1 text-accent">Inicio</a>
+        <a href="#nosotros" onclick="toggleMobileMenu()" class="py-1 hover:text-accent" data-i18n="nav.about">Nosotros</a>
+        <a href="#servicios" onclick="toggleMobileMenu()" class="py-1 hover:text-accent" data-i18n="nav.services">Servicios Especializados</a>
+        <a href="#casos" onclick="toggleMobileMenu()" class="py-1 hover:text-accent" data-i18n="nav.cases">Casos Clínicos</a>
+        <a href="#testimonios" onclick="toggleMobileMenu()" class="py-1 hover:text-accent" data-i18n="nav.reviews">Opiniones</a>
+        <a href="#contacto" onclick="toggleMobileMenu()" class="py-1 hover:text-accent" data-i18n="nav.contact">Ubicación &amp; Cita</a>
+      </nav>
+      <div class="pt-3 border-t border-light-outline">
+        <a href="#contacto" onclick="toggleMobileMenu()" class="w-full flex items-center justify-center gap-2 py-3 bg-accent text-white rounded-full font-headline font-semibold text-sm shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+          <span data-i18n="cta.book">Agendar Cita</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section: Swiss-Inspired Clean Architecture & Medical Confidence -->
+  <section id="inicio" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 bg-light-surface">
+    <!-- Subtle organic background watermark echoing brand form -->
+    <div class="absolute -right-24 -top-24 w-96 h-96 bg-accent-light/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute -left-20 bottom-10 w-80 h-80 bg-light-surface-subtle rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Copy Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-light text-accent text-xs font-headline font-semibold">
+            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            <span data-i18n="hero.badge">Excelencia en Rehabilitación Oral &amp; Cirugía Guiada</span>
+          </div>
+
+          <h1 class="font-headline font-bold text-3xl sm:text-5xl lg:text-display-lg text-light-primary tracking-tight leading-tight text-balance">
+            <span data-i18n="hero.title_p1">Precisión clínica y alta tecnología para</span> 
+            <span class="text-accent underline decoration-accent/30 decoration-wavy" data-i18n="hero.title_p2">devolver tu sonrisa</span>.
+          </h1>
+
+          <p class="font-body text-base sm:text-lg text-light-on-surface-variant max-w-2xl leading-relaxed text-pretty" data-i18n="hero.desc">
+            Bajo el liderazgo de la <strong>Dra. Sugey Zúñiga H</strong>, combinamos odontología reconstructiva avanzada, planificación digital 3D y un ambiente sereno de calidez humana inspirado en la odontología de precisión suiza.
+          </p>
+
+          <!-- Key Value Metrics / Trust Badges -->
+          <div class="grid grid-cols-3 gap-4 pt-2 max-w-lg">
+            <div class="border-l-2 border-accent pl-3">
+              <span class="block font-headline font-bold text-xl sm:text-2xl text-light-primary tabular-nums">+14</span>
+              <span class="text-xs text-light-on-surface-variant" data-i18n="hero.stat1">Años de experiencia</span>
+            </div>
+            <div class="border-l-2 border-accent pl-3">
+              <span class="block font-headline font-bold text-xl sm:text-2xl text-light-primary tabular-nums">100%</span>
+              <span class="text-xs text-light-on-surface-variant" data-i18n="hero.stat2">Planificación digital</span>
+            </div>
+            <div class="border-l-2 border-accent pl-3">
+              <span class="block font-headline font-bold text-xl sm:text-2xl text-light-primary tabular-nums">5.0 ★</span>
+              <span class="text-xs text-light-on-surface-variant" data-i18n="hero.stat3">Reseñas en Google</span>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#contacto" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-accent hover:bg-accent-hover text-white rounded-full font-headline font-semibold text-base transition-all duration-state-change shadow-md hover:shadow-lg hover:-translate-y-0.5">
+              <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+              <span data-i18n="hero.cta_main">Solicitar Valoración</span>
+            </a>
+
+            <a href="https://wa.me/573001234567?text=Hola%20Dra.%20Sugey%2C%20quisiera%20agendar%20una%20cita%20de%20valoraci%C3%B3n" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-light-outline hover:border-whatsapp text-light-primary hover:text-emerald-700 rounded-full font-headline font-semibold text-base transition-all duration-state-change shadow-xs">
+              <span class="w-3 h-3 rounded-full bg-whatsapp inline-block"></span>
+              <span data-i18n="hero.cta_wa">Hablar por WhatsApp</span>
+            </a>
+          </div>
+
+          <p class="text-xs text-light-on-surface-variant flex items-center gap-1.5 pt-1">
+            <span class="material-symbols-outlined text-accent text-[16px]">verified_user</span>
+            <span data-i18n="hero.trust_note">Atención personalizada y protocolos bioseguros de estándar internacional.</span>
+          </p>
+        </div>
+
+        <!-- Right Hero Media Composition -->
+        <div class="lg:col-span-5 relative">
+          <!-- Main Clinic Image -->
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-light-outline/60 bg-light-surface-subtle group">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAzqjJRA-YmF22Hsw8WPJo6wSSxo6gCAs24s7Yvw5Oe0NfXa8uPdslAYS8tFpJfd9x9qpQiKmjnxjIBpC0iFzXAawTzriI3aTSUxxXkXtbh6cOWa1oKO402GafPiTh2HC-qlHKhVoshcGk2k7T-21iAi8Hy1XwOeQ1bPPzmg4mNIIGWfzNMyTsS7KM1y71_WBd05wqITGJomhqr_Hy-jN8mektZbwttwgrjkUYtO6c2vjr_3o13iRed2YxHvzb4" alt="Consultorio odontológico Sugey ZH Rehabilitación Oral en Bogotá" class="w-full h-[440px] sm:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-light-primary/70 via-light-primary/10 to-transparent"></div>
+            
+            <!-- Floating Specialist Badge Card -->
+            <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-xl p-4 border border-white/60 shadow-lg flex items-center gap-4">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBGK56RiWbA6Kw8wxEhQfDbXDQT4iOdY__fU0_L5QskaUXgHYHOySf-s953gqZ2xH_gTxfBiqCiDxeC2Olhv8D6smoMuMncgDbSHeTiytQEDDUo-Fq0TblnzoBartKwvzzOT_1wnYC_ZZVXQGbs5kNCm7qnihAkMUzNl0c9c9YOD6fD-HmJVtvy3J7DCzddO7kTDSOwTKox4-RJU2e0AsteYjsjN_3PuPa5GGYDF4-AicD-feHLZ5j-qePq4DY2lg" alt="Dra. Sugey Zúñiga H" class="w-14 h-14 rounded-full object-cover border-2 border-accent shadow-sm">
+              <div>
+                <h2 class="font-headline font-bold text-sm text-light-primary">Dra. Sugey Zúñiga H.</h2>
+                <p class="font-body text-xs text-accent font-medium" data-i18n="hero.card_doc_sub">Especialista en Rehabilitación Oral</p>
+                <p class="font-body text-[11px] text-light-on-surface-variant" data-i18n="hero.card_doc_desc">Docente e investigadora en prótesis fija y sobre implantes</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative Floating Feature Tag -->
+          <div class="hidden sm:flex absolute -top-5 -left-5 bg-white rounded-full py-2 px-4 shadow-md border border-light-outline items-center gap-2">
+            <span class="material-symbols-outlined text-accent text-[20px]">biotech</span>
+            <span class="font-headline text-xs font-semibold text-light-primary" data-i18n="hero.tag_tech">Scanner Intraoral 3D CAD/CAM</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor & Philosophy Section ("Nosotros / About Us") -->
+  <section id="nosotros" class="py-20 bg-light-surface-card border-y border-light-outline/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Doctor Portrait with Architectural Minimal Frame -->
+        <div class="lg:col-span-5 order-2 lg:order-1 relative">
+          <div class="relative mx-auto max-w-md">
+            <div class="absolute -inset-4 bg-light-surface-subtle rounded-3xl -rotate-2 -z-10 border border-light-outline"></div>
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBGK56RiWbA6Kw8wxEhQfDbXDQT4iOdY__fU0_L5QskaUXgHYHOySf-s953gqZ2xH_gTxfBiqCiDxeC2Olhv8D6smoMuMncgDbSHeTiytQEDDUo-Fq0TblnzoBartKwvzzOT_1wnYC_ZZVXQGbs5kNCm7qnihAkMUzNl0c9c9YOD6fD-HmJVtvy3J7DCzddO7kTDSOwTKox4-RJU2e0AsteYjsjN_3PuPa5GGYDF4-AicD-feHLZ5j-qePq4DY2lg" alt="Dra. Sugey Zúñiga H en su consultorio" class="w-full h-[480px] object-cover rounded-2xl shadow-xl border border-light-outline">
+            <!-- Quote Overlay -->
+            <div class="absolute -bottom-6 -right-4 bg-light-primary text-white p-5 rounded-2xl max-w-xs shadow-xl hidden sm:block">
+              <span class="material-symbols-outlined text-accent-light text-[28px] mb-1">format_quote</span>
+              <p class="font-body text-xs italic leading-relaxed text-white/90" data-i18n="about.quote">
+                &#34;Rehabilitar no es solo devolver dientes; es restaurar la función masticatoria, la armonía facial y la seguridad de volver a sonreír con total libertad.&#34;
+              </p>
+              <span class="block mt-2 font-headline font-bold text-xs text-accent-light">— Dra. Sugey Zúñiga H.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor Credentials and Philosophy Narrative -->
+        <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-surface-subtle text-light-on-surface-variant text-xs font-headline font-semibold">
+            <span class="material-symbols-outlined text-accent text-[16px]">stethoscope</span>
+            <span data-i18n="about.badge">Sobre la Especialista &amp; El Consultorio</span>
+          </div>
+
+          <h2 class="font-headline font-bold text-3xl sm:text-4xl text-light-primary tracking-tight" data-i18n="about.title">
+            Ciencia, estética y empatía al servicio de tu bienestar bucal
+          </h2>
+
+          <p class="font-body text-base text-light-on-surface-variant leading-relaxed" data-i18n="about.p1">
+            En <strong>Sugey ZH Rehabilitación Oral</strong> entendemos que cada paciente tiene una historia y necesidades anatómicas únicas. Como especialista en Rehabilitación Oral y Alta Estética, la Dra. Sugey combina rigurosa formación científica internacional con tecnología de última generación para resolver desde casos cosméticos sutiles hasta complejas reconstrucciones orales completas.
+          </p>
+
+          <p class="font-body text-base text-light-on-surface-variant leading-relaxed" data-i18n="about.p2">
+            Inspirados en la filosofía de la odontología suiza (precisión milimétrica, preservación biológica y sobriedad arquitectónica), garantizamos diagnósticos certeros donde el paciente siempre comprende cada etapa de su tratamiento con total transparencia.
+          </p>
+
+          <!-- Core Pillars Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-light-surface border border-light-outline/80 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[22px]">architecture</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm text-light-primary" data-i18n="about.pillar1_title">Planificación Guiada 3D</h4>
+                <p class="text-xs text-light-on-surface-variant mt-0.5" data-i18n="about.pillar1_desc">Diseño digital antes de tocar cualquier estructura dental.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-light-surface border border-light-outline/80 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[22px]">health_and_safety</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm text-light-primary" data-i18n="about.pillar2_title">Materiales Biocompatibles</h4>
+                <p class="text-xs text-light-on-surface-variant mt-0.5" data-i18n="about.pillar2_desc">Cerámicas puras de disilicato de litio y zirconio traslúcido.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-light-surface border border-light-outline/80 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[22px]">mood</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm text-light-primary" data-i18n="about.pillar3_title">Tratamiento sin Dolor</h4>
+                <p class="text-xs text-light-on-surface-variant mt-0.5" data-i18n="about.pillar3_desc">Técnicas mínimamente invasivas y atmósfera relajante.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-light-surface border border-light-outline/80 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[22px]">diamond</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm text-light-primary" data-i18n="about.pillar4_title">Garantía de Durabilidad</h4>
+                <p class="text-xs text-light-on-surface-variant mt-0.5" data-i18n="about.pillar4_desc">Oclusión balanceada que protege articulación y restauraciones.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Dental Services Section -->
+  <section id="servicios" class="py-20 lg:py-28 bg-light-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-light text-accent text-xs font-headline font-semibold">
+          <span class="material-symbols-outlined text-[16px]">dentistry</span>
+          <span data-i18n="services.badge">Tratamientos Odontológicos de Alta Gama</span>
+        </div>
+        <h2 class="font-headline font-bold text-3xl sm:text-4xl text-light-primary tracking-tight" data-i18n="services.title">
+          Servicios Especializados en Rehabilitación Oral
+        </h2>
+        <p class="font-body text-base text-light-on-surface-variant" data-i18n="services.subtitle">
+          Soluciones integrales diseñadas con microscopía, flujos digitales e ingeniería de materiales para restituir la armonía y función de tu boca.
+        </p>
+      </div>
+
+      <!-- Services Grid: 4 Core Specialties -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Service 1: Implantes Dentales -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-white rounded-2xl overflow-hidden border border-light-outline hover:border-accent/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCUUEkMwXzgq2hsd9Y_zSAJGBa5cpkk5sSOY8N39fYmJN2zeo29S9xqbhoUt4Il92xeQMnVvJoHCe-Jfjnhjku6QUTLX3T8Eai8-uWXC6pUuDSJ3CiiGPL_9UFSWygl_1VwwIneCGC8ULpKDU0CZ3M-ZOw-2CFVauRoKPiLXnLLCz7ASQBTH1GA9zJYocbHrPeLXasQTBFq9BkYvI2nl9FQVAWVUtY3hBZ_R7yqac78mtSL3ZfvsdXBdziGTWwu0NRl" alt="Implantes dentales guiados por computadora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary">
+                Especialidad #1
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline font-bold text-xl text-light-primary mb-2" data-i18n="srv1.title">
+                Implantes Dentales
+              </h3>
+              <p class="font-body text-sm text-light-on-surface-variant leading-relaxed mb-4" data-i18n="srv1.desc">
+                Colocación quirúrgica guiada por tomografía computarizada 3D para una inserción mínimamente invasiva, predecible y con menor tiempo de cicatrización.
+              </p>
+              <ul class="text-xs text-light-on-surface-variant space-y-1.5 border-t border-light-outline/60 pt-3">
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv1.f1">Implante unitario o múltiple</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv1.f2">Carga inmediata (dientes en el día)</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv1.f3">Cirugía guiada sin cortes extensos</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openServiceModal(&#39;implantes&#39;)" class="w-full py-2.5 px-4 rounded-full border border-light-outline hover:border-accent hover:bg-accent-light/50 text-light-primary hover:text-accent font-headline text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+              <span data-i18n="srv.ver_mas">Ver detalles del tratamiento</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 2: Rehabilitación de Implantes -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-white rounded-2xl overflow-hidden border border-light-outline hover:border-accent/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrD64M1Rp-kdbEf_xO6hlDa5n6pWVq2YjW8ShLSlTQfdr_WjnAjLWypr4a-VE6U4iVg01-xAxicZBwDztVhXnLz2qU5VPNrQizPg74BY39NUiI7rgV0S_8u5OOmWgwgbtNgsIbek97_Yne-t7XFS6bwd-IrKQyquhcmlyB9rcxf734QzoW1DH4sTrlMy1ddDLsSOcSIcfDEbIzfu6ewcUG4FBxkAXQRx5WDtdBEzeSlmted3xOX8vsyHo15A97TAvw" alt="Rehabilitación protésica sobre implantes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary">
+                Especialidad #2
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline font-bold text-xl text-light-primary mb-2" data-i18n="srv2.title">
+                Rehabilitación de Implantes
+              </h3>
+              <p class="font-body text-sm text-light-on-surface-variant leading-relaxed mb-4" data-i18n="srv2.desc">
+                Diseño y fabricación de coronas, puentes y prótesis completas atornilladas sobre implantes con ajuste pasivo biomecánico y ajuste marginal perfecto.
+              </p>
+              <ul class="text-xs text-light-on-surface-variant space-y-1.5 border-t border-light-outline/60 pt-3">
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv2.f1">Prótesis fijas híbridas / All-on-4</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv2.f2">Coronas atornilladas en Zirconia</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv2.f3">Mantenimiento y desinfección anual</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openServiceModal(&#39;rehab_implantes&#39;)" class="w-full py-2.5 px-4 rounded-full border border-light-outline hover:border-accent hover:bg-accent-light/50 text-light-primary hover:text-accent font-headline text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+              <span data-i18n="srv.ver_mas">Ver detalles del tratamiento</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 3: Tratamientos Complejos / Alta Complejidad -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-white rounded-2xl overflow-hidden border border-light-outline hover:border-accent/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAzqjJRA-YmF22Hsw8WPJo6wSSxo6gCAs24s7Yvw5Oe0NfXa8uPdslAYS8tFpJfd9x9qpQiKmjnxjIBpC0iFzXAawTzriI3aTSUxxXkXtbh6cOWa1oKO402GafPiTh2HC-qlHKhVoshcGk2k7T-21iAi8Hy1XwOeQ1bPPzmg4mNIIGWfzNMyTsS7KM1y71_WBd05wqITGJomhqr_Hy-jN8mektZbwttwgrjkUYtO6c2vjr_3o13iRed2YxHvzb4" alt="Reconstrucción y tratamientos odontológicos complejos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary">
+                Especialidad #3
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline font-bold text-xl text-light-primary mb-2" data-i18n="srv3.title">
+                Tratamientos Complejos
+              </h3>
+              <p class="font-body text-sm text-light-on-surface-variant leading-relaxed mb-4" data-i18n="srv3.desc">
+                Rehabilitación integral para bocas colapsadas por bruxismo severo, desgaste oclusal generalizado, mordidas cruzadas o pérdida múltiple de piezas.
+              </p>
+              <ul class="text-xs text-light-on-surface-variant space-y-1.5 border-t border-light-outline/60 pt-3">
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv3.f1">Recuperación de dimensión vertical</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv3.f2">Equilibrio de articulación (ATM)</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv3.f3">Solución de casos fallidos previos</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openServiceModal(&#39;complejos&#39;)" class="w-full py-2.5 px-4 rounded-full border border-light-outline hover:border-accent hover:bg-accent-light/50 text-light-primary hover:text-accent font-headline text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+              <span data-i18n="srv.ver_mas">Ver detalles del tratamiento</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Service 4: Diseños de Sonrisa -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-white rounded-2xl overflow-hidden border border-light-outline hover:border-accent/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrARDH2tGehWM-H1tkCIJf_lAc0-P_j8PuK_wsjsE8osEvvZ90i4HTqHJPKB3SHXtwJHs8XHo5h1vNjofZlBoJEBwqavo9GROxXDXO5VM9y7cI96E40MlT_cCKEaqKi1mC_nqY5a5PigD_-GZvkaGdnVmYOvLhCjXRAeRgJXZT25Ae7nEeEsEWQnjsuOFGgdiuAalH0_Ynx5h1ysFQSP6okuAAM0jA4lDqF7pX02vsqR-n_qg2_hZCNuBGC8C8I" alt="Diseño de sonrisa de alta estética y carillas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary">
+                Especialidad #4
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline font-bold text-xl text-light-primary mb-2" data-i18n="srv4.title">
+                Diseños de Sonrisa
+              </h3>
+              <p class="font-body text-sm text-light-on-surface-variant leading-relaxed mb-4" data-i18n="srv4.desc">
+                Carillas cerámicas ultrafinas (Laminados / Contact Lenses) elaboradas a mano con estratificación artística para una sonrisa luminosa y 100% natural.
+              </p>
+              <ul class="text-xs text-light-on-surface-variant space-y-1.5 border-t border-light-outline/60 pt-3">
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv4.f1">Mínimo o nulo desgaste dental</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv4.f2">Mockup previo para probar en boca</span></li>
+                <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-[16px]">check_circle</span> <span data-i18n="srv4.f3">Color y brillo inalterables con el tiempo</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openServiceModal(&#39;sonrisa&#39;)" class="w-full py-2.5 px-4 rounded-full border border-light-outline hover:border-accent hover:bg-accent-light/50 text-light-primary hover:text-accent font-headline text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+              <span data-i18n="srv.ver_mas">Ver detalles del tratamiento</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Before & After Case Gallery with Slider -->
+  <section id="casos" class="py-20 lg:py-28 bg-light-surface-card border-t border-light-outline">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-light text-accent text-xs font-headline font-semibold">
+            <span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+            <span data-i18n="cases.badge">Evidencia Clínica Real</span>
+          </div>
+          <h2 class="font-headline font-bold text-3xl sm:text-4xl text-light-primary tracking-tight" data-i18n="cases.title">
+            Galería Interactiva de Casos: Antes y Después
+          </h2>
+          <p class="font-body text-base text-light-on-surface-variant max-w-2xl" data-i18n="cases.desc">
+            Desliza la barra horizontal para apreciar la transformación anatómica, la textura natural de las cerámicas y el cierre estético logrado.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-label text-light-on-surface-variant flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-accent">swipe</span>
+            <span data-i18n="cases.instruction">Arrastra la barra central</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Main Interactive Comparison Component -->
+      <div class="bg-light-surface rounded-3xl p-4 sm:p-8 border border-light-outline shadow-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Interactive Slider Box (Col 8) -->
+          <div class="lg:col-span-8">
+            <div id="slider-wrapper" class="comparison-slider-container relative rounded-2xl overflow-hidden aspect-[16/9] shadow-md border border-light-outline bg-black select-none">
+              
+              <!-- "After" Image (Background Layer) -->
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDW3B1h4IvCAudf1CnctSWv2_EnJJqqAJC3pkYbkYuGKVzNfdY9S4U9VcwdQRjlC8HkROeH1eyQmt2CaN3tISXEshONNAoJf0Hs4uNAcR4Kf-2PptU7STrITiwogPM4coEHg3HLIGidXMr0adS1DsS9G_FLKS2kDrnln0i-GZJcUjkxiqdSa_ZwOTfpFt3zjEYleSfStnhV-G1H4M3RC0T4cJyXNafV8ckvEfpyEgHTrkoWPuvW5h53kGQ" alt="Resultado final después de rehabilitación con carillas y porcelana estética" class="w-full h-full object-cover block pointer-events-none">
+              <div class="absolute bottom-4 right-4 bg-accent/90 text-white font-headline text-xs font-bold px-3 py-1 rounded-full backdrop-blur-xs tracking-wider uppercase">
+                <span data-i18n="cases.label_after">Después / Resultado</span>
+              </div>
+
+              <!-- "Before" Image (Foreground Layer clipped by percentage) -->
+              <div id="before-image-layer" class="comparison-slider-before" style="width: 50%;">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrDelL3xFcIlLmXxgl6IDcfMIhSKkjvaUXpfdmNJ1SvawPdvao6NWhNQBSn6PsN4ylcmUrOnU20DboEaTDvhvPOky9Ux77wxUkf1IzILIfCXfR50fQaximLPYCjt8U32hgMc5cWkJ3fxuD24CoiQ_BDplN-Gv1rgtifPuqSj25laqWNeZdEK7ybNaURSims6xYg6abG_OSMAhR7kkkIQNyKHrkxLi7oQteeLdMrpSeppo4K1dE66gjzIy4CB" alt="Estado inicial del paciente antes de la rehabilitación oral" class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none max-w-none" style="width: 100%; height: 100%; object-fit: cover;" id="before-img">
+                <div class="absolute bottom-4 left-4 bg-light-primary/90 text-white font-headline text-xs font-bold px-3 py-1 rounded-full backdrop-blur-xs tracking-wider uppercase">
+                  <span data-i18n="cases.label_before">Antes / Diagnóstico</span>
+                </div>
+              </div>
+
+              <!-- Interactive Divider Line & Handle -->
+              <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]" style="left: 50%;">
+                <div class="w-10 h-10 -ml-0.5 rounded-full bg-white text-light-primary shadow-xl border-2 border-accent flex items-center justify-center transition-transform hover:scale-110 active:scale-95">
+                  <span class="material-symbols-outlined text-[20px] select-none text-accent">drag_indicator</span>
+                </div>
+              </div>
+
+              <!-- Invisible Range Input for Full Cross-Platform Accessibility & Touch Controls -->
+              <input type="range" min="0" max="100" value="50" id="comparison-range" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0" aria-label="Deslizador para comparar antes y después del tratamiento">
+            </div>
+          </div>
+
+          <!-- Case Clinical Information Card (Col 4) -->
+          <div class="lg:col-span-4 space-y-5">
+            <div class="inline-block px-3 py-1 rounded-md bg-accent-light text-accent text-xs font-headline font-bold">
+              Caso Clínico #104
+            </div>
+
+            <h3 class="font-headline font-bold text-2xl text-light-primary" data-i18n="case.title">
+              Rehabilitación Estética &amp; Rejuvenecimiento de Sonrisa
+            </h3>
+
+            <div class="space-y-3 text-sm text-light-on-surface-variant font-body">
+              <div>
+                <strong class="text-light-primary block" data-i18n="case.diag_title">Diagnóstico inicial:</strong>
+                <p data-i18n="case.diag_desc">Atrición severa en bordes incisales por bruxismo nocturno, discrepancia de márgenes gingivales y microfracturas en esmalte.</p>
+              </div>
+
+              <div>
+                <strong class="text-light-primary block" data-i18n="case.treat_title">Tratamiento implementado:</strong>
+                <p data-i18n="case.treat_desc">Encerado diagnóstico digital (DSD), gingivoplastia estética guiada por láser y colocación de 8 carillas cerámicas en disilicato de litio estratificadas.</p>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-light-outline flex items-center justify-between text-xs">
+                <div>
+                  <span class="text-light-on-surface-variant block">Tiempo de ejecución:</span>
+                  <strong class="text-light-primary font-headline">3 sesiones clínicas</strong>
+                </div>
+                <div class="border-l border-light-outline pl-3">
+                  <span class="text-light-on-surface-variant block">Especialista a cargo:</span>
+                  <strong class="text-accent font-headline">Dra. Sugey Zúñiga H.</strong>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contacto" class="w-full inline-flex items-center justify-center gap-2 py-3 px-5 bg-light-primary hover:bg-black text-white rounded-full font-headline text-xs font-semibold transition-colors">
+              <span class="material-symbols-outlined text-[16px]">visibility</span>
+              <span data-i18n="case.btn_quote">Evaluar si soy candidato para este tratamiento</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Google Reviews & Patient Trust Management Section -->
+  <section id="testimonios" class="py-20 lg:py-28 bg-light-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title & Google Maps Rating Overview Header -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 pb-8 border-b border-light-outline">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-light text-accent text-xs font-headline font-semibold mb-3">
+            <span class="material-symbols-outlined text-[16px]">reviews</span>
+            <span data-i18n="reviews.badge">Gestión de Confianza &amp; Transparencia</span>
+          </div>
+          <h2 class="font-headline font-bold text-3xl sm:text-4xl text-light-primary tracking-tight" data-i18n="reviews.title">
+            Testimonios Reales Verificados en Google Maps
+          </h2>
+          <p class="font-body text-base text-light-on-surface-variant mt-2" data-i18n="reviews.subtitle">
+            La tranquilidad de nuestros pacientes es nuestro mayor orgullo profesional.
+          </p>
+        </div>
+
+        <!-- Google Score Floating Widget Card -->
+        <div class="bg-white rounded-2xl p-5 border border-light-outline shadow-sm flex items-center gap-6 shrink-0">
+          <div class="flex flex-col items-center justify-center">
+            <!-- Google Multicolor Logo -->
+            <svg class="h-6 mb-1.5" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path>
+            </svg>
+            <span class="font-headline font-bold text-2xl text-light-primary">4.9 / 5.0</span>
+          </div>
+
+          <div class="border-l border-light-outline pl-5">
+            <div class="flex items-center gap-0.5 text-amber-500 mb-1">
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+            </div>
+            <p class="font-headline text-xs font-semibold text-light-primary" data-i18n="reviews.count">+68 Reseñas Verificadas</p>
+            <span class="text-[11px] text-light-on-surface-variant" data-i18n="reviews.verified">Google Business Profile</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Cards Carousel / Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1 -->
+        <article class="bg-white rounded-2xl p-6 border border-light-outline shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center text-amber-500">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              </div>
+              <span class="text-xs text-light-on-surface-variant font-label">Hace 2 semanas</span>
+            </div>
+            <p class="font-body text-sm text-light-on-surface leading-relaxed mb-6" data-i18n="rev1.text">
+              &#34;Venía con mucho miedo tras un fracaso en otra clínica con un implante. La Dra. Sugey me explicó todo con calma, utilizó guía computarizada y no sentí ningún dolor. El resultado estético y funcional es impecable.&#34;
+            </p>
+          </div>
+          <footer class="flex items-center gap-3 pt-4 border-t border-light-outline/70">
+            <div class="w-10 h-10 rounded-full bg-accent-light text-accent font-headline font-bold text-sm flex items-center justify-center">
+              CR
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-sm text-light-primary">Carlos Rodríguez M.</h4>
+              <span class="text-xs text-light-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-blue-600">verified</span>
+                Paciente de Implante Guiado
+              </span>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Review 2 -->
+        <article class="bg-white rounded-2xl p-6 border border-light-outline shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center text-amber-500">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              </div>
+              <span class="text-xs text-light-on-surface-variant font-label">Hace 1 mes</span>
+            </div>
+            <p class="font-body text-sm text-light-on-surface leading-relaxed mb-6" data-i18n="rev2.text">
+              &#34;El diseño de sonrisa que me hizo la Dra. Sugey luce completamente natural. Nada de dientes falsos o excesivamente blancos tipo tiza. Es una verdadera artista de la odontología estética. El consultorio es hermoso y muy relajante.&#34;
+            </p>
+          </div>
+          <footer class="flex items-center gap-3 pt-4 border-t border-light-outline/70">
+            <div class="w-10 h-10 rounded-full bg-accent-light text-accent font-headline font-bold text-sm flex items-center justify-center">
+              VG
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-sm text-light-primary">Valeria Gómez T.</h4>
+              <span class="text-xs text-light-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-blue-600">verified</span>
+                Paciente de Diseño de Sonrisa
+              </span>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Review 3 -->
+        <article class="bg-white rounded-2xl p-6 border border-light-outline shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center text-amber-500">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+              </div>
+              <span class="text-xs text-light-on-surface-variant font-label">Hace 2 meses</span>
+            </div>
+            <p class="font-body text-sm text-light-on-surface leading-relaxed mb-6" data-i18n="rev3.text">
+              &#34;Padecía de dolores severos de cabeza y desgaste en mis muelas por apretar los dientes. Me hicieron una rehabilitación oclusal completa con coronas de zirconia. Volví a masticar con seguridad y cesaron los dolores. Calidad de nivel internacional.&#34;
+            </p>
+          </div>
+          <footer class="flex items-center gap-3 pt-4 border-t border-light-outline/70">
+            <div class="w-10 h-10 rounded-full bg-accent-light text-accent font-headline font-bold text-sm flex items-center justify-center">
+              JA
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-sm text-light-primary">Jorge Andrés Medina</h4>
+              <span class="text-xs text-light-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-blue-600">verified</span>
+                Paciente de Rehabilitación Oclusal
+              </span>
+            </div>
+          </footer>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Conversion, Appointment Booking & Location Map Section -->
+  <section id="contacto" class="py-20 lg:py-28 bg-light-surface-card border-t border-light-outline">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-light text-accent text-xs font-headline font-semibold">
+          <span class="material-symbols-outlined text-[16px]">pin_drop</span>
+          <span data-i18n="contact.badge">Atención Presencial &amp; Agendamiento</span>
+        </div>
+        <h2 class="font-headline font-bold text-3xl sm:text-4xl text-light-primary tracking-tight" data-i18n="contact.title">
+          Inicia tu Transformación: Agenda tu Cita de Valoración
+        </h2>
+        <p class="font-body text-base text-light-on-surface-variant" data-i18n="contact.subtitle">
+          Completa el formulario o contáctanos de inmediato por WhatsApp para coordinar tu consulta en nuestro consultorio en Bogotá.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Functional Appointment Booking Form -->
+        <div class="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-light-outline shadow-lg">
+          <h3 class="font-headline font-bold text-2xl text-light-primary mb-2" data-i18n="form.title">
+            Solicitar Cita Directa
+          </h3>
+          <p class="text-sm text-light-on-surface-variant font-body mb-6" data-i18n="form.subtitle">
+            Nuestro equipo de recepción confirmará tu horario en menos de 2 horas hábiles.
+          </p>
+
+          <form id="appointment-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+            
+            <!-- Full Name -->
+            <label data-component-id="input-field-text" class="block space-y-1">
+              <span class="font-headline text-xs font-semibold text-light-primary" data-i18n="form.name_label">Nombre y Apellidos *</span>
+              <input type="text" required id="form-name" placeholder="Ej. Carolina Montes" class="w-full px-4 py-3 rounded-xl border border-light-outline bg-light-surface text-light-on-surface placeholder:text-light-on-surface-variant/40 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none text-sm transition-all">
+            </label>
+
+            <!-- Phone & Email Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="block space-y-1">
+                <span class="font-headline text-xs font-semibold text-light-primary" data-i18n="form.phone_label">Teléfono / WhatsApp *</span>
+                <input type="tel" required id="form-phone" placeholder="+57 300 123 4567" class="w-full px-4 py-3 rounded-xl border border-light-outline bg-light-surface text-light-on-surface placeholder:text-light-on-surface-variant/40 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none text-sm transition-all">
+              </label>
+
+              <label class="block space-y-1">
+                <span class="font-headline text-xs font-semibold text-light-primary" data-i18n="form.email_label">Correo electrónico</span>
+                <input type="email" id="form-email" placeholder="carolina@ejemplo.com" class="w-full px-4 py-3 rounded-xl border border-light-outline bg-light-surface text-light-on-surface placeholder:text-light-on-surface-variant/40 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none text-sm transition-all">
+              </label>
+            </div>
+
+            <!-- Service Selection Dropdown -->
+            <label class="block space-y-1">
+              <span class="font-headline text-xs font-semibold text-light-primary" data-i18n="form.service_label">Servicio o Motivo de Consulta *</span>
+              <select id="form-service" required class="w-full px-4 py-3 rounded-xl border border-light-outline bg-light-surface text-light-on-surface focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none text-sm transition-all">
+                <option value="implantes" data-i18n="form.opt1">Implantes Dentales &amp; Cirugía Guiada</option>
+                <option value="rehab_implantes" data-i18n="form.opt2">Rehabilitación Protésica sobre Implantes</option>
+                <option value="sonrisa" data-i18n="form.opt3">Diseño de Sonrisa &amp; Carillas Cerámicas</option>
+                <option value="complejos" data-i18n="form.opt4">Tratamiento Complejo / Reconstrucción Oral</option>
+                <option value="general" data-i18n="form.opt5">Valoración Inicial General</option>
+              </select>
+            </label>
+
+            <!-- Message / Notes -->
+            <label class="block space-y-1">
+              <span class="font-headline text-xs font-semibold text-light-primary" data-i18n="form.msg_label">Comentarios o preferencia de horario</span>
+              <textarea id="form-notes" rows="3" placeholder="Cuéntanos brevemente tu caso o si prefieres horario mañana o tarde..." class="w-full px-4 py-3 rounded-xl border border-light-outline bg-light-surface text-light-on-surface placeholder:text-light-on-surface-variant/40 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none text-sm transition-all"></textarea>
+            </label>
+
+            <!-- Submit Button -->
+            <button type="submit" data-component-id="button-primary" class="w-full py-4 bg-accent hover:bg-accent-hover text-white rounded-full font-headline font-semibold text-base transition-all duration-state-change shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">send</span>
+              <span data-i18n="form.submit">Confirmar Solicitud de Cita</span>
+            </button>
+
+            <div id="form-success-alert" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3">
+              <span class="material-symbols-outlined text-[22px] text-emerald-600">check_circle</span>
+              <div>
+                <strong class="font-headline block">¡Solicitud recibida con éxito!</strong>
+                <span>Nos pondremos en contacto contigo a la brevedad para agendar tu horario.</span>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right: Clinic Address, Contact Info & Embedded Interactive Google Map -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <div class="bg-white p-8 rounded-3xl border border-light-outline shadow-sm space-y-6">
+            <h3 class="font-headline font-bold text-xl text-light-primary" data-i18n="loc.title">
+              Información del Consultorio
+            </h3>
+
+            <div class="space-y-4 text-sm font-body">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-accent-light text-accent flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[22px]">location_on</span>
+                </div>
+                <div>
+                  <h4 class="font-headline font-semibold text-light-primary" data-i18n="loc.addr_title">Dirección Exacta:</h4>
+                  <p class="text-light-on-surface-variant">Calle 93B # 11A - 84, Edificio Centro Médico Chicó, Consultorio 502, Bogotá, Colombia.</p>
+                  <span class="text-xs text-accent font-medium mt-1 inline-block" data-i18n="loc.parking">Parqueadero vigilado para pacientes en el edificio.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-accent-light text-accent flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[22px]">phone_iphone</span>
+                </div>
+                <div>
+                  <h4 class="font-headline font-semibold text-light-primary" data-i18n="loc.phone_title">Teléfonos &amp; Atención Inmediata:</h4>
+                  <p class="text-light-on-surface-variant">+57 (601) 745 2890 / +57 300 123 4567</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-accent-light text-accent flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[22px]">mail</span>
+                </div>
+                <div>
+                  <h4 class="font-headline font-semibold text-light-primary">Email Oficial:</h4>
+                  <p class="text-light-on-surface-variant">contacto@sugeyzhrehabilitacion.com</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct WhatsApp Quick Connect Button -->
+            <a href="https://wa.me/573001234567?text=Hola%20Dra.%20Sugey%2C%20quisiera%20solicitar%20informaci%C3%B3n%20para%20una%20cita%20presencial" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-full bg-whatsapp hover:bg-emerald-600 text-white font-headline font-semibold text-sm flex items-center justify-center gap-2.5 transition-all shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">chat</span>
+              <span data-i18n="loc.wa_btn">Chatear directamente por WhatsApp ahora</span>
+            </a>
+          </div>
+
+          <!-- Embedded Interactive Google Map Component -->
+          <div class="rounded-3xl overflow-hidden border border-light-outline shadow-md relative h-72 sm:h-80 bg-light-surface-subtle">
+            <!-- Functional Google Maps Embed of Chicó Norte, Bogotá Dental Medical Corridor -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.621256306509!2d-74.0538356242385!3d4.678184542006841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5f78a8aa87%3A0x6436e2f7543202!2sCl.%2093b%20%23%2011a-84%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1714000000000!5m2!1ses!2sco" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación en Google Maps del consultorio Sugey ZH Rehabilitación Oral"></iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extended Treatment Modal Dialog -->
+  <dialog id="treatment-modal" class="p-0 rounded-3xl backdrop:bg-black/60 shadow-2xl max-w-2xl w-full border border-light-outline bg-white overflow-hidden m-auto">
+    <div class="p-6 sm:p-8 space-y-4">
+      <div class="flex items-center justify-between border-b border-light-outline pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-accent-light text-accent flex items-center justify-center">
+            <span id="modal-icon" class="material-symbols-outlined text-[24px]">dentistry</span>
+          </div>
+          <h3 id="modal-title" class="font-headline font-bold text-xl text-light-primary">Detalle del Tratamiento</h3>
+        </div>
+        <button onclick="closeServiceModal()" class="w-9 h-9 rounded-full bg-light-surface border border-light-outline flex items-center justify-center text-light-on-surface-variant hover:text-light-primary transition-colors" aria-label="Cerrar ventana">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div id="modal-content" class="text-sm font-body text-light-on-surface-variant leading-relaxed space-y-3">
+        <!-- Dynamic content filled via JS -->
+      </div>
+
+      <div class="pt-4 border-t border-light-outline flex items-center justify-end gap-3">
+        <button onclick="closeServiceModal()" class="px-5 py-2.5 rounded-full border border-light-outline text-xs font-headline font-semibold text-light-primary hover:bg-light-surface">
+          Cerrar
+        </button>
+        <a href="#contacto" onclick="closeServiceModal()" class="px-6 py-2.5 rounded-full bg-accent text-white text-xs font-headline font-semibold hover:bg-accent-hover transition-colors">
+          Agendar este tratamiento
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modern Animated Floating WhatsApp Contact Button -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center group">
+    <a href="https://wa.me/573001234567?text=Hola%20Dra.%20Sugey%2C%20quisiera%20consultar%20por%20una%20cita%20o%20tratamiento" target="_blank" rel="noopener noreferrer" aria-label="Atención inmediata por WhatsApp con Dra. Sugey" class="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-whatsapp text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-300">
+      <!-- Pulsing Ping Effect -->
+      <span class="absolute -inset-1 rounded-full bg-whatsapp opacity-40 animate-ping pointer-events-none"></span>
+      <span class="material-symbols-outlined text-[32px] sm:text-[36px]">chat</span>
+    </a>
+    <!-- Floating Tooltip on Hover -->
+    <span class="hidden sm:group-hover:inline-block absolute right-20 bg-light-primary text-white text-xs font-headline font-medium py-2 px-3.5 rounded-xl shadow-lg whitespace-nowrap pointer-events-none transition-opacity">
+      ¿Tienes dudas? Escríbenos por WhatsApp
+    </span>
+  </div>
+
+  <!-- Corporate Footer -->
+  <footer class="bg-light-primary text-white pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Brand Summary -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-md bg-white/10 flex items-center justify-center p-2">
+              <svg viewBox="0 0 100 130" class="w-full h-full fill-current text-[#D4E79E]">
+                <path d="M12 28 C 8 45, 25 58, 48 42 C 55 46, 68 50, 78 40 C 92 26, 88 8, 70 8 C 55 8, 38 18, 28 22 C 18 20, 14 22, 12 28 Z"></path>
+                <path d="M48 42 C 42 48, 40 55, 46 62 C 52 70, 52 78, 44 85 C 38 90, 36 102, 44 110 C 52 118, 62 112, 60 100 C 58 88, 68 80, 68 70 C 68 58, 56 46, 48 42 Z"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="font-headline font-bold text-base tracking-wider uppercase block text-white">Sugey Zúñiga H</span>
+              <span class="font-label text-xs text-white/60 uppercase">Rehabilitación Oral</span>
+            </div>
+          </div>
+          <p class="font-body text-xs text-white/70 leading-relaxed" data-i18n="footer.desc">
+            Práctica odontológica exclusiva enfocada en la longevidad biomecánica, precisión estética y cuidado personalizado de cada paciente.
+          </p>
+        </div>
+
+        <!-- Treatments Quick Links -->
+        <div class="space-y-3 font-body text-xs">
+          <h4 class="font-headline font-bold text-sm text-white uppercase tracking-wider" data-i18n="footer.col_treatments">Especialidades</h4>
+          <ul class="space-y-2 text-white/70">
+            <li><a href="#servicios" class="hover:text-accent-light transition-colors">Implantes Guiados 3D</a></li>
+            <li><a href="#servicios" class="hover:text-accent-light transition-colors">Rehabilitación de Implantes</a></li>
+            <li><a href="#servicios" class="hover:text-accent-light transition-colors">Diseño de Sonrisa &amp; Carillas</a></li>
+            <li><a href="#servicios" class="hover:text-accent-light transition-colors">Tratamientos Complejos &amp; Oclusión</a></li>
+            <li><a href="#servicios" class="hover:text-accent-light transition-colors">Prótesis en Zirconio CAD/CAM</a></li>
+          </ul>
+        </div>
+
+        <!-- Corporate Navigation -->
+        <div class="space-y-3 font-body text-xs">
+          <h4 class="font-headline font-bold text-sm text-white uppercase tracking-wider" data-i18n="footer.col_clinic">Consultorio</h4>
+          <ul class="space-y-2 text-white/70">
+            <li><a href="#nosotros" class="hover:text-accent-light transition-colors">Sobre la Dra. Sugey Zúñiga</a></li>
+            <li><a href="#casos" class="hover:text-accent-light transition-colors">Casos Antes y Después</a></li>
+            <li><a href="#testimonios" class="hover:text-accent-light transition-colors">Opiniones en Google Maps</a></li>
+            <li><a href="#contacto" class="hover:text-accent-light transition-colors">Agendamiento de Citas</a></li>
+            <li><a href="#contacto" class="hover:text-accent-light transition-colors">Ubicación &amp; Parqueadero</a></li>
+          </ul>
+        </div>
+
+        <!-- Working Hours & Direct Lines -->
+        <div class="space-y-3 font-body text-xs text-white/70">
+          <h4 class="font-headline font-bold text-sm text-white uppercase tracking-wider" data-i18n="footer.col_hours">Horarios de Atención</h4>
+          <p><strong class="text-white">Lunes a Viernes:</strong><br>8:00 AM – 6:00 PM</p>
+          <p><strong class="text-white">Sábados:</strong><br>8:00 AM – 1:00 PM</p>
+          <p><strong class="text-white">Urgencias odontológicas:</strong><br>Atención prioritaria vía WhatsApp.</p>
+        </div>
+
+      </div>
+
+      <!-- Legal and Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 font-label gap-4">
+        <p>© 2026 Sugey ZH Rehabilitación Oral. Todos los derechos reservados. Registro Médico Profesional Verificado.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+          <a href="#" class="hover:text-white transition-colors">Consentimiento Informado</a>
+          <a href="#" class="hover:text-white transition-colors">Aviso Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Logic & Multilingual Engine -->
+  <script>
+    // 1. Interactive Before/After Slider Logic
+    const sliderRange = document.getElementById('comparison-range');
+    const beforeLayer = document.getElementById('before-image-layer');
+    const sliderHandle = document.getElementById('slider-handle');
+
+    function updateSlider(val) {
+      beforeLayer.style.width = val + '%';
+      sliderHandle.style.left = val + '%';
+    }
+
+    if (sliderRange) {
+      sliderRange.addEventListener('input', (e) => {
+        updateSlider(e.target.value);
+      });
+    }
+
+    // 2. Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.textContent = 'close';
+      } else {
+        menu.classList.add('hidden');
+        icon.textContent = 'menu';
+      }
+    }
+
+    // 3. Service Extended Details Modal
+    const serviceDetails = {
+      implantes: {
+        title: "Implantes Dentales & Cirugía Guiada 3D",
+        icon: "medical_services",
+        content: `
+          <p class="mb-3">Los implantes dentales son raíces artificiales de titanio grado médico que sustituyen piezas perdidas con la máxima estabilidad y biocompatibilidad del mercado.</p>
+          <h4 class="font-headline font-bold text-light-primary text-sm mb-1">¿Cómo realizamos el procedimiento?</h4>
+          <ul class="list-disc pl-5 space-y-1 mb-3">
+            <li><strong>Tomografía Cone Beam 3D:</strong> Análisis tridimensional del grosor óseo y trayecto nervioso.</li>
+            <li><strong>Guía quirúrgica computarizada:</strong> Inserción precisa sin incisiones innecesarias, reduciendo inflamación postoperatoria.</li>
+            <li><strong>Corona definitiva en Zirconio:</strong> Confeccionada por fresado robótico CAD/CAM con ajuste exacto.</li>
+          </ul>
+        `
+      },
+      rehab_implantes: {
+        title: "Rehabilitación Protésica sobre Implantes",
+        icon: "precision_manufacturing",
+        content: `
+          <p class="mb-3">Tratamiento dirigido a pacientes con implantes previamente colocados o que necesitan reemplazar prótesis removibles incómodas por estructuras fijas definitivas.</p>
+          <h4 class="font-headline font-bold text-light-primary text-sm mb-1">Ventajas principales:</h4>
+          <ul class="list-disc pl-5 space-y-1 mb-3">
+            <li>Sistemas atornillados reversibles que permiten higiene y mantenimiento periódico seguro.</li>
+            <li>Eliminación de paladares molestos para recuperar el gusto y la pronunciación fonética.</li>
+            <li>Armonización biomecánica para distribuir equitativamente las fuerzas de masticación.</li>
+          </ul>
+        `
+      },
+      complejos: {
+        title: "Tratamientos Complejos & Reconstrucción Integral",
+        icon: "healing",
+        content: `
+          <p class="mb-3">Atención interdisciplinaria de casos severos donde convergen pérdida masiva de dientes, dolor en la articulación temporomandibular (ATM) o desgaste dental extremo.</p>
+          <h4 class="font-headline font-bold text-light-primary text-sm mb-1">Enfoque clínico:</h4>
+          <ul class="list-disc pl-5 space-y-1 mb-3">
+            <li>Desprogramación neuromuscular y estabilización articular.</li>
+            <li>Rehabilitación protésica completa respetando la dimensión vertical fisiológica del paciente.</li>
+            <li>Placas neuromiorelajantes digitales para protección a largo plazo.</li>
+          </ul>
+        `
+      },
+      sonrisa: {
+        title: "Diseños de Sonrisa con Carillas Cerámicas",
+        icon: "diamond",
+        content: `
+          <p class="mb-3">Procedimiento mínimamente invasivo que corrige color, forma, textura, posición y proporción de los dientes frontales con micro-laminados cerámicos de disilicato de litio.</p>
+          <h4 class="font-headline font-bold text-light-primary text-sm mb-1">Protocolo exclusivo:</h4>
+          <ul class="list-disc pl-5 space-y-1 mb-3">
+            <li><strong>Digital Smile Design (DSD):</strong> Fotografías de alta resolución y simulación digital en armonía con tus rasgos faciales.</li>
+            <li><strong>Test Drive (Mock-up):</strong> Prueba directa en tu boca con resinas provisionales para validar el resultado antes de fabricar las carillas finales.</li>
+            <li>Adhesión química microscópica que no pierde brillo ni se pigmenta con café o vino.</li>
+          </ul>
+        `
+      }
+    };
+
+    function openServiceModal(type) {
+      const data = serviceDetails[type];
+      if (!data) return;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-icon').textContent = data.icon;
+      document.getElementById('modal-content').innerHTML = data.content;
+      document.getElementById('treatment-modal').showModal();
+    }
+
+    function closeServiceModal() {
+      document.getElementById('treatment-modal').close();
+    }
+
+    // Close modal when clicking outside
+    const modalEl = document.getElementById('treatment-modal');
+    modalEl.addEventListener('click', (e) => {
+      const rect = modalEl.getBoundingClientRect();
+      if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+      ) {
+        modalEl.close();
+      }
+    });
+
+    // 4. Contact Form Functional Feedback
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const service = document.getElementById('form-service').value;
+      const alertBox = document.getElementById('form-success-alert');
+      
+      alertBox.classList.remove('hidden');
+      
+      // Open WhatsApp prefilled message optionally
+      setTimeout(() => {
+        const textMsg = `Hola Dra. Sugey, soy ${encodeURIComponent(name)}. Acabo de solicitar cita para ${encodeURIComponent(service)} desde la web. Mi teléfono es ${encodeURIComponent(phone)}.`;
+        window.open(`https://wa.me/573001234567?text=${textMsg}`, '_blank');
+      }, 1000);
+    }
+
+    // 5. Bilingual Engine (Spanish / English)
+    const translations = {
+      es: {
+        "nav.about": "Nosotros",
+        "nav.services": "Servicios Especializados",
+        "nav.cases": "Casos Clínicos",
+        "nav.reviews": "Opiniones",
+        "nav.contact": "Ubicación & Cita",
+        "cta.book": "Agendar Cita",
+        "hero.badge": "Excelencia en Rehabilitación Oral & Cirugía Guiada",
+        "hero.title_p1": "Precisión clínica y alta tecnología para",
+        "hero.title_p2": "devolver tu sonrisa",
+        "hero.desc": "Bajo el liderazgo de la Dra. Sugey Zúñiga H, combinamos odontología reconstructiva avanzada, planificación digital 3D y un ambiente sereno de calidez humana inspirado en la odontología de precisión suiza.",
+        "hero.stat1": "Años de experiencia",
+        "hero.stat2": "Planificación digital",
+        "hero.stat3": "Reseñas en Google",
+        "hero.cta_main": "Solicitar Valoración",
+        "hero.cta_wa": "Hablar por WhatsApp",
+        "hero.trust_note": "Atención personalizada y protocolos bioseguros de estándar internacional.",
+        "hero.card_doc_sub": "Especialista en Rehabilitación Oral",
+        "hero.card_doc_desc": "Docente e investigadora en prótesis fija y sobre implantes",
+        "hero.tag_tech": "Scanner Intraoral 3D CAD/CAM",
+        "about.badge": "Sobre la Especialista & El Consultorio",
+        "about.title": "Ciencia, estética y empatía al servicio de tu bienestar bucal",
+        "about.p1": "En Sugey ZH Rehabilitación Oral entendemos que cada paciente tiene una historia y necesidades anatómicas únicas. Como especialista en Rehabilitación Oral y Alta Estética, la Dra. Sugey combina rigurosa formación científica internacional con tecnología de última generación para resolver desde casos cosméticos sutiles hasta complejas reconstrucciones orales completas.",
+        "about.p2": "Inspirados en la filosofía de la odontología suiza (precisión milimétrica, preservación biológica y sobriedad arquitectónica), garantizamos diagnósticos certeros donde el paciente siempre comprende cada etapa de su tratamiento con total transparencia.",
+        "about.quote": "\"Rehabilitar no es solo devolver dientes; es restaurar la función masticatoria, la armonía facial y la seguridad de volver a sonreír con total libertad.\"",
+        "about.pillar1_title": "Planificación Guiada 3D",
+        "about.pillar1_desc": "Diseño digital antes de tocar cualquier estructura dental.",
+        "about.pillar2_title": "Materiales Biocompatibles",
+        "about.pillar2_desc": "Cerámicas puras de disilicato de litio y zirconio traslúcido.",
+        "about.pillar3_title": "Tratamiento sin Dolor",
+        "about.pillar3_desc": "Técnicas mínimamente invasivas y atmósfera relajante.",
+        "about.pillar4_title": "Garantía de Durabilidad",
+        "about.pillar4_desc": "Oclusión balanceada que protege articulación y restauraciones.",
+        "services.badge": "Tratamientos Odontológicos de Alta Gama",
+        "services.title": "Servicios Especializados en Rehabilitación Oral",
+        "services.subtitle": "Soluciones integrales diseñadas con microscopía, flujos digitales e ingeniería de materiales para restituir la armonía y función de tu boca.",
+        "srv1.title": "Implantes Dentales",
+        "srv1.desc": "Colocación quirúrgica guiada por tomografía computarizada 3D para una inserción mínimamente invasiva, predecible y con menor tiempo de cicatrización.",
+        "srv1.f1": "Implante unitario o múltiple",
+        "srv1.f2": "Carga inmediata (dientes en el día)",
+        "srv1.f3": "Cirugía guiada sin cortes extensos",
+        "srv2.title": "Rehabilitación de Implantes",
+        "srv2.desc": "Diseño y fabricación de coronas, puentes y prótesis completas atornilladas sobre implantes con ajuste pasivo biomecánico y ajuste marginal perfecto.",
+        "srv2.f1": "Prótesis fijas híbridas / All-on-4",
+        "srv2.f2": "Coronas atornilladas en Zirconia",
+        "srv2.f3": "Mantenimiento y desinfección anual",
+        "srv3.title": "Tratamientos Complejos",
+        "srv3.desc": "Rehabilitación integral para bocas colapsadas por bruxismo severo, desgaste oclusal generalizado, mordidas cruzadas o pérdida múltiple de piezas.",
+        "srv3.f1": "Recuperación de dimensión vertical",
+        "srv3.f2": "Equilibrio de articulación (ATM)",
+        "srv3.f3": "Solución de casos fallidos previos",
+        "srv4.title": "Diseños de Sonrisa",
+        "srv4.desc": "Carillas cerámicas ultrafinas (Laminados / Contact Lenses) elaboradas a mano con estratificación artística para una sonrisa luminosa y 100% natural.",
+        "srv4.f1": "Mínimo o nulo desgaste dental",
+        "srv4.f2": "Mockup previo para probar en boca",
+        "srv4.f3": "Color y brillo inalterables con el tiempo",
+        "srv.ver_mas": "Ver detalles del tratamiento",
+        "cases.badge": "Evidencia Clínica Real",
+        "cases.title": "Galería Interactiva de Casos: Antes y Después",
+        "cases.desc": "Desliza la barra horizontal para apreciar la transformación anatómica, la textura natural de las cerámicas y el cierre estético logrado.",
+        "cases.instruction": "Arrastra la barra central",
+        "cases.label_after": "Después / Resultado",
+        "cases.label_before": "Antes / Diagnóstico",
+        "case.title": "Rehabilitación Estética & Rejuvenecimiento de Sonrisa",
+        "case.diag_title": "Diagnóstico inicial:",
+        "case.diag_desc": "Atrición severa en bordes incisales por bruxismo nocturno, discrepancia de márgenes gingivales y microfracturas en esmalte.",
+        "case.treat_title": "Tratamiento implementado:",
+        "case.treat_desc": "Encerado diagnóstico digital (DSD), gingivoplastia estética guiada por láser y colocación de 8 carillas cerámicas en disilicato de litio estratificadas.",
+        "case.btn_quote": "Evaluar si soy candidato para este tratamiento",
+        "reviews.badge": "Gestión de Confianza & Transparencia",
+        "reviews.title": "Testimonios Reales Verificados en Google Maps",
+        "reviews.subtitle": "La tranquilidad de nuestros pacientes es nuestro mayor orgullo profesional.",
+        "reviews.count": "+68 Reseñas Verificadas",
+        "reviews.verified": "Google Business Profile",
+        "rev1.text": "\"Venía con mucho miedo tras un fracaso en otra clínica con un implante. La Dra. Sugey me explicó todo con calma, utilizó guía computarizada y no sentí ningún dolor. El resultado estético y funcional es impecable.\"",
+        "rev2.text": "\"El diseño de sonrisa que me hizo la Dra. Sugey luce completamente natural. Nada de dientes falsos o excesivamente blancos tipo tiza. Es una verdadera artista de la odontología estética. El consultorio es hermoso y muy relajante.\"",
+        "rev3.text": "\"Padecía de dolores severos de cabeza y desgaste en mis muelas por apretar los dientes. Me hicieron una rehabilitación oclusal completa con coronas de zirconia. Volví a masticar con seguridad y cesaron los dolores. Calidad de nivel internacional.\"",
+        "contact.badge": "Atención Presencial & Agendamiento",
+        "contact.title": "Inicia tu Transformación: Agenda tu Cita de Valoración",
+        "contact.subtitle": "Completa el formulario o contáctanos de inmediato por WhatsApp para coordinar tu consulta en nuestro consultorio en Bogotá.",
+        "form.title": "Solicitar Cita Directa",
+        "form.subtitle": "Nuestro equipo de recepción confirmará tu horario en menos de 2 horas hábiles.",
+        "form.name_label": "Nombre y Apellidos *",
+        "form.phone_label": "Teléfono / WhatsApp *",
+        "form.email_label": "Correo electrónico",
+        "form.service_label": "Servicio o Motivo de Consulta *",
+        "form.opt1": "Implantes Dentales & Cirugía Guiada",
+        "form.opt2": "Rehabilitación Protésica sobre Implantes",
+        "form.opt3": "Diseño de Sonrisa & Carillas Cerámicas",
+        "form.opt4": "Tratamiento Complejo / Reconstrucción Oral",
+        "form.opt5": "Valoración Inicial General",
+        "form.msg_label": "Comentarios o preferencia de horario",
+        "form.submit": "Confirmar Solicitud de Cita",
+        "loc.title": "Información del Consultorio",
+        "loc.addr_title": "Dirección Exacta:",
+        "loc.parking": "Parqueadero vigilado para pacientes en el edificio.",
+        "loc.phone_title": "Teléfonos & Atención Inmediata:",
+        "loc.wa_btn": "Chatear directamente por WhatsApp ahora"
+      },
+      en: {
+        "nav.about": "About Us",
+        "nav.services": "Specialized Services",
+        "nav.cases": "Clinical Cases",
+        "nav.reviews": "Reviews",
+        "nav.contact": "Location & Booking",
+        "cta.book": "Book Appointment",
+        "hero.badge": "Excellence in Oral Rehabilitation & Guided Surgery",
+        "hero.title_p1": "Clinical precision and high technology to",
+        "hero.title_p2": "restore your smile",
+        "hero.desc": "Led by Dr. Sugey Zúñiga H, we combine advanced reconstructive dentistry, 3D digital planning, and a serene, warm atmosphere inspired by Swiss precision dentistry.",
+        "hero.stat1": "Years of experience",
+        "hero.stat2": "Digital planning",
+        "hero.stat3": "Google rating",
+        "hero.cta_main": "Request Consultation",
+        "hero.cta_wa": "Chat via WhatsApp",
+        "hero.trust_note": "Personalized care and international biosafety standards.",
+        "hero.card_doc_sub": "Oral Rehabilitation Specialist",
+        "hero.card_doc_desc": "Academic professor and researcher in prosthodontics & implants",
+        "hero.tag_tech": "3D CAD/CAM Intraoral Scanner",
+        "about.badge": "About the Specialist & Practice",
+        "about.title": "Science, aesthetics, and empathy devoted to your oral health",
+        "about.p1": "At Sugey ZH Oral Rehabilitation, we know every patient has a distinct anatomical background and personal story. Dr. Sugey combines rigorous scientific training with cutting-edge dental technology to resolve subtle cosmetic nuances and complex full-mouth reconstructions alike.",
+        "about.p2": "Inspired by the philosophy of Swiss dental craftsmanship (sub-millimeter precision, biological tooth preservation, and serene design), we deliver predictable outcomes with total transparency at each treatment stage.",
+        "about.quote": "\"Rehabilitation is not just restoring teeth; it is revitalizing chewing comfort, facial balance, and the genuine confidence of smiling freely.\"",
+        "about.pillar1_title": "3D Guided Planning",
+        "about.pillar1_desc": "Digital mock-ups before any tooth alteration.",
+        "about.pillar2_title": "Biocompatible Materials",
+        "about.pillar2_desc": "Pure lithium disilicate and high-translucency zirconia.",
+        "about.pillar3_title": "Pain-Free Treatments",
+        "about.pillar3_desc": "Minimally invasive techniques in a soothing atmosphere.",
+        "about.pillar4_title": "Proven Durability",
+        "about.pillar4_desc": "Balanced occlusion protecting your TMJ joint and restorations.",
+        "services.badge": "High-End Dental Specialties",
+        "services.title": "Specialized Oral Rehabilitation Services",
+        "services.subtitle": "Comprehensive solutions crafted with microscopy, digital workflows, and materials science to restore harmony and function.",
+        "srv1.title": "Dental Implants",
+        "srv1.desc": "Guided surgical placement based on 3D CBCT scans for a minimally invasive, predictable intervention and accelerated healing.",
+        "srv1.f1": "Single or multiple missing teeth",
+        "srv1.f2": "Immediate loading (same-day teeth)",
+        "srv1.f3": "Flapless guided computer surgery",
+        "srv2.title": "Implant Rehabilitation",
+        "srv2.desc": "Design and milling of screw-retained ceramic crowns, bridges, and full-arch prostheses with passive fit and zero micro-gaps.",
+        "srv2.f1": "Fixed hybrid prostheses / All-on-4",
+        "srv2.f2": "Screw-retained Zirconia crowns",
+        "srv2.f3": "Annual maintenance & ultrasonic cleaning",
+        "srv3.title": "Complex Reconstructions",
+        "srv3.desc": "Full-mouth rehabilitation for collapsed bites, severe night bruxism, generalized tooth wear, crossbites, or missing posterior support.",
+        "srv3.f1": "Vertical dimension restoration",
+        "srv3.f2": "TMJ joint decompression & relief",
+        "srv3.f3": "Revision of previous failed treatments",
+        "srv4.title": "Smile Design & Veneers",
+        "srv4.desc": "Ultra-thin ceramic contact veneers hand-layered by master dental technicians for an authentic, luminous, non-bulky smile.",
+        "srv4.f1": "Minimal or zero enamel reduction",
+        "srv4.f2": "Pre-treatment trial mock-up in mouth",
+        "srv4.f3": "Stain-resistant, permanent color stability",
+        "srv.ver_mas": "View treatment details",
+        "cases.badge": "Real Clinical Evidence",
+        "cases.title": "Interactive Case Gallery: Before & After",
+        "cases.desc": "Slide horizontally to evaluate anatomical harmony, natural porcelain translucency, and the precise cosmetic transformation.",
+        "cases.instruction": "Drag the center bar",
+        "cases.label_after": "After / Final Outcome",
+        "cases.label_before": "Before / Initial State",
+        "case.title": "Aesthetic Rehabilitation & Smile Rejuvenation",
+        "case.diag_title": "Initial diagnosis:",
+        "case.diag_desc": "Severe incisal attrition caused by chronic bruxism, asymmetric gingival margins, and micro-cracked enamel.",
+        "case.treat_title": "Implemented procedure:",
+        "case.treat_desc": "Digital Smile Design (DSD), laser-assisted aesthetic gingivoplasty, and 8 hand-layered lithium disilicate ceramic veneers.",
+        "case.btn_quote": "Check if I am a candidate for this treatment",
+        "reviews.badge": "Trust & Verified Transparency",
+        "reviews.title": "Real Verified Reviews on Google Maps",
+        "reviews.subtitle": "Our patients' long-term peace of mind is our highest clinical reward.",
+        "reviews.count": "+68 Verified Reviews",
+        "reviews.verified": "Google Business Profile",
+        "rev1.text": "\"I came with high anxiety after a failed implant at another clinic. Dr. Sugey explained every step clearly, used 3D guidance, and I felt zero pain. The aesthetic and functional outcome is world-class.\"",
+        "rev2.text": "\"The smile design Dr. Sugey crafted looks completely natural. No chalky, fake-looking teeth. She is a true artist in restorative dentistry. The practice is gorgeous and very relaxing.\"",
+        "rev3.text": "\"I suffered from chronic headaches and tooth wear from clenching. Dr. Sugey performed a complete occlusal restoration with zirconia crowns. I chew effortlessly now and the pain stopped entirely.\"",
+        "contact.badge": "In-Person Care & Scheduling",
+        "contact.title": "Begin Your Journey: Book Your Consultation",
+        "contact.subtitle": "Fill out the appointment form or contact us immediately via WhatsApp to schedule your evaluation in Bogotá.",
+        "form.title": "Request Direct Appointment",
+        "form.subtitle": "Our reception team will confirm your preferred time within 2 business hours.",
+        "form.name_label": "Full Name *",
+        "form.phone_label": "Phone / WhatsApp *",
+        "form.email_label": "Email Address",
+        "form.service_label": "Specialty or Reason for Visit *",
+        "form.opt1": "Dental Implants & Guided Surgery",
+        "form.opt2": "Implant Rehabilitation & Fixed Prosthodontics",
+        "form.opt3": "Smile Design & Ceramic Veneers",
+        "form.opt4": "Complex Case / Full Mouth Reconstruction",
+        "form.opt5": "General Initial Evaluation",
+        "form.msg_label": "Notes or preferred schedule",
+        "form.submit": "Confirm Appointment Request",
+        "loc.title": "Clinic Information",
+        "loc.addr_title": "Exact Address:",
+        "loc.parking": "Secure patient parking available inside the building.",
+        "loc.phone_title": "Phone & Immediate Inquiries:",
+        "loc.wa_btn": "Chat directly on WhatsApp now"
+      }
+    };
+
+    function switchLanguage(lang) {
+      const btnEs = document.getElementById('lang-es');
+      const btnEn = document.getElementById('lang-en');
+      
+      if (lang === 'es') {
+        btnEs.className = "px-2.5 py-1 rounded-full bg-light-primary text-white transition-all shadow-xs";
+        btnEn.className = "px-2.5 py-1 rounded-full text-light-on-surface-variant hover:text-light-primary transition-all";
+      } else {
+        btnEn.className = "px-2.5 py-1 rounded-full bg-light-primary text-white transition-all shadow-xs";
+        btnEs.className = "px-2.5 py-1 rounded-full text-light-on-surface-variant hover:text-light-primary transition-all";
+      }
+
+      const dict = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+    }
+  </script>
+
+
+</body></html>
