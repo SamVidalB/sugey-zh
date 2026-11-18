@@ -18,6 +18,7 @@
   let activeModalServiceKey = null;
   let isEmailSubmitting = false;
   let activeTheme = 'light';
+  let activeScrollAnimationId = null;
 
   function getI18nApi() {
     return global.SugeyI18n || null;
@@ -73,26 +74,93 @@
   }
 
   /* --------------------------------------------------------------------------
-   * 2. Smooth Scroll with Sticky Header Compensation
+   * 2. Smooth Scroll with Sticky Header Compensation (Cross-Browser Eased RAF)
    * ------------------------------------------------------------------------ */
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function getCurrentScrollY() {
+    if (global.scrollY !== undefined) return global.scrollY;
+    if (global.pageYOffset !== undefined) return global.pageYOffset;
+    return (document.documentElement && document.documentElement.scrollTop) || 0;
+  }
+
+  function smoothScrollToY(targetY, customDuration) {
+    const destination = Math.max(0, Math.round(targetY));
+
+    if (typeof global.requestAnimationFrame !== 'function') {
+      if (typeof global.scrollTo === 'function') {
+        global.scrollTo({ top: destination, behavior: 'smooth' });
+      } else if (document.documentElement) {
+        document.documentElement.scrollTop = destination;
+      }
+      return;
+    }
+
+    if (activeScrollAnimationId !== null && typeof global.cancelAnimationFrame === 'function') {
+      global.cancelAnimationFrame(activeScrollAnimationId);
+      activeScrollAnimationId = null;
+    }
+
+    const startY = getCurrentScrollY();
+    const distance = destination - startY;
+    if (Math.abs(distance) < 2) {
+      global.scrollTo(0, destination);
+      return;
+    }
+
+    const duration = typeof customDuration === 'number'
+      ? customDuration
+      : Math.min(780, Math.max(420, Math.abs(distance) * 0.35));
+    const rootStyle = document.documentElement ? document.documentElement.style : null;
+    const prevScrollBehavior = rootStyle ? rootStyle.scrollBehavior : '';
+    if (rootStyle) {
+      rootStyle.scrollBehavior = 'auto';
+    }
+
+    const nowFn = (global.performance && typeof global.performance.now === 'function')
+      ? function () { return global.performance.now(); }
+      : function () { return Date.now(); };
+    const startTime = nowFn();
+
+    function step(timestamp) {
+      const currentTime = typeof timestamp === 'number' ? timestamp : nowFn();
+      const elapsed = Math.max(0, currentTime - startTime);
+      const progress = Math.min(1, elapsed / duration);
+      const eased = easeInOutCubic(progress);
+      const nextY = Math.round(startY + distance * eased);
+
+      global.scrollTo(0, nextY);
+
+      if (progress < 1) {
+        activeScrollAnimationId = global.requestAnimationFrame(step);
+      } else {
+        activeScrollAnimationId = null;
+        if (rootStyle) {
+          rootStyle.scrollBehavior = prevScrollBehavior;
+        }
+      }
+    }
+
+    activeScrollAnimationId = global.requestAnimationFrame(step);
+  }
+
   function scrollToSection(targetId) {
     if (!targetId || targetId === '#') return;
     const id = targetId.charAt(0) === '#' ? targetId.slice(1) : targetId;
+    if (id === 'inicio') {
+      smoothScrollToY(0);
+      return;
+    }
+
     const targetEl = document.getElementById(id);
     if (!targetEl) return;
 
     const header = document.querySelector('header');
     const headerOffset = header ? header.offsetHeight + 8 : 88;
-    const targetTop = targetEl.getBoundingClientRect().top + global.pageYOffset - headerOffset;
-
-    if (typeof global.scrollTo === 'function') {
-      global.scrollTo({
-        top: Math.max(0, targetTop),
-        behavior: 'smooth'
-      });
-    } else if (typeof targetEl.scrollIntoView === 'function') {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    const targetTop = targetEl.getBoundingClientRect().top + getCurrentScrollY() - headerOffset;
+    smoothScrollToY(targetTop);
   }
 
   function initSmoothScroll() {
@@ -108,6 +176,9 @@
 
       e.preventDefault();
       closeMobileMenu();
+      if (activeModalServiceKey) {
+        closeServiceModal();
+      }
       scrollToSection(href);
 
       if (global.history && typeof global.history.pushState === 'function') {
@@ -717,12 +788,7 @@
   }
 
   function scrollToTop() {
-    if (typeof global.scrollTo === 'function') {
-      global.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      if (document.documentElement) document.documentElement.scrollTop = 0;
-      if (document.body) document.body.scrollTop = 0;
-    }
+    smoothScrollToY(0);
   }
 
   function initScrollToTop() {
@@ -784,6 +850,8 @@
     applyTheme: applyTheme,
     getActiveTheme: getActiveTheme,
     scrollToTop: scrollToTop,
+    scrollToSection: scrollToSection,
+    smoothScrollToY: smoothScrollToY,
     updateScrollToTopVisibility: updateScrollToTopVisibility
   };
 
