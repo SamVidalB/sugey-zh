@@ -11,8 +11,13 @@
   const DEFAULT_EMAIL = 'szodontologiaunivalle@gmail.com';
   const DEFAULT_TEST_CC = 'samirvidal@gmail.com';
   const DEFAULT_FORMSUBMIT_URL = 'https://formsubmit.co/ajax/' + DEFAULT_EMAIL;
+  const THEME_STORAGE_KEY = 'sugey_zh_theme';
+  const NAVBAR_LOGO_LIGHT = './assets/img/logos/logo-navbar.png';
+  const NAVBAR_LOGO_DARK = './assets/img/logos/logo-footer.png';
+  const SCROLL_TOP_THRESHOLD = 400;
   let activeModalServiceKey = null;
   let isEmailSubmitting = false;
+  let activeTheme = 'light';
 
   function getI18nApi() {
     return global.SugeyI18n || null;
@@ -136,7 +141,7 @@
 
     if (details.sectionTitle) {
       const sectionHeading = document.createElement('h4');
-      sectionHeading.className = 'font-headline font-bold text-light-primary text-sm mb-2';
+      sectionHeading.className = 'font-headline font-bold text-light-primary dark:text-[#FAFAF7] text-sm mb-2';
       sectionHeading.textContent = details.sectionTitle;
       container.appendChild(sectionHeading);
     }
@@ -149,7 +154,7 @@
         const li = document.createElement('li');
         if (item.label) {
           const strong = document.createElement('strong');
-          strong.className = 'text-light-primary';
+          strong.className = 'text-light-primary dark:text-[#FAFAF7]';
           strong.textContent = item.label + ' ';
           li.appendChild(strong);
         }
@@ -588,7 +593,148 @@
   }
 
   /* --------------------------------------------------------------------------
-   * 5. Global Keyboard & Viewport Listeners
+   * 5. Light / Dark Clinical Theme Controller (Light by default)
+   * ------------------------------------------------------------------------ */
+  function readStoredTheme() {
+    try {
+      const saved = global.localStorage ? global.localStorage.getItem(THEME_STORAGE_KEY) : null;
+      return saved === 'dark' ? 'dark' : 'light';
+    } catch (_) {
+      return 'light';
+    }
+  }
+
+  function persistTheme(theme) {
+    try {
+      if (global.localStorage) {
+        global.localStorage.setItem(THEME_STORAGE_KEY, theme);
+      }
+    } catch (_) {
+      // Ignore storage errors in private/restricted browser contexts
+    }
+  }
+
+  function updateThemeToggleUi(isDark) {
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
+    const navbarLogo = document.getElementById('navbar-logo-img');
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+    if (navbarLogo) {
+      navbarLogo.setAttribute('src', isDark ? NAVBAR_LOGO_DARK : NAVBAR_LOGO_LIGHT);
+    }
+
+    if (sunIcon && moonIcon) {
+      if (isDark) {
+        sunIcon.classList.remove('opacity-0', 'scale-75', '-rotate-90', 'pointer-events-none');
+        sunIcon.classList.add('opacity-100', 'scale-100', 'rotate-0');
+        moonIcon.classList.add('opacity-0', 'scale-75', 'rotate-90', 'pointer-events-none');
+        moonIcon.classList.remove('opacity-100', 'scale-100', 'rotate-0');
+      } else {
+        moonIcon.classList.remove('opacity-0', 'scale-75', 'rotate-90', 'pointer-events-none');
+        moonIcon.classList.add('opacity-100', 'scale-100', 'rotate-0');
+        sunIcon.classList.add('opacity-0', 'scale-75', '-rotate-90', 'pointer-events-none');
+        sunIcon.classList.remove('opacity-100', 'scale-100', 'rotate-0');
+      }
+    }
+
+    if (toggleBtn) {
+      const label = isDark
+        ? getLocalizedText('theme.toggle_to_light', 'Cambiar a modo claro')
+        : getLocalizedText('theme.toggle_to_dark', 'Cambiar a modo oscuro');
+      toggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      toggleBtn.setAttribute('aria-label', label);
+      toggleBtn.setAttribute('title', label);
+    }
+
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', isDark ? '#121820' : '#1C2430');
+    }
+  }
+
+  function applyTheme(theme, shouldPersist) {
+    const nextTheme = theme === 'dark' ? 'dark' : 'light';
+    const isDark = nextTheme === 'dark';
+    activeTheme = nextTheme;
+
+    if (document.documentElement && document.documentElement.classList) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    document.documentElement.setAttribute('data-theme', nextTheme);
+
+    if (shouldPersist) {
+      persistTheme(nextTheme);
+    }
+
+    updateThemeToggleUi(isDark);
+    return nextTheme;
+  }
+
+  function toggleTheme() {
+    const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
+    return applyTheme(nextTheme, true);
+  }
+
+  function getActiveTheme() {
+    return activeTheme;
+  }
+
+  function initTheme() {
+    const initialTheme = readStoredTheme();
+    applyTheme(initialTheme, false);
+
+    document.addEventListener('sugey:languageChanged', function () {
+      updateThemeToggleUi(activeTheme === 'dark');
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+   * 6. Floating Scroll-to-Top Button (> 400px)
+   * ------------------------------------------------------------------------ */
+  function updateScrollToTopVisibility() {
+    const btn = document.getElementById('scroll-to-top-btn');
+    if (!btn) return;
+
+    const currentScroll = global.scrollY !== undefined ? global.scrollY : (global.pageYOffset || 0);
+    const shouldShow = currentScroll > SCROLL_TOP_THRESHOLD;
+
+    if (shouldShow) {
+      btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      btn.classList.add('opacity-100', 'translate-y-0');
+      btn.setAttribute('aria-hidden', 'false');
+      btn.tabIndex = 0;
+    } else {
+      btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      btn.classList.remove('opacity-100', 'translate-y-0');
+      btn.setAttribute('aria-hidden', 'true');
+      btn.tabIndex = -1;
+    }
+  }
+
+  function scrollToTop() {
+    if (typeof global.scrollTo === 'function') {
+      global.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (document.documentElement) {
+      document.documentElement.scrollTop = 0;
+    }
+  }
+
+  function initScrollToTop() {
+    const btn = document.getElementById('scroll-to-top-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', scrollToTop);
+    global.addEventListener('scroll', updateScrollToTopVisibility, { passive: true });
+    updateScrollToTopVisibility();
+  }
+
+  /* --------------------------------------------------------------------------
+   * 7. Global Keyboard & Viewport Listeners
    * ------------------------------------------------------------------------ */
   function initGlobalListeners() {
     document.addEventListener('keydown', function (e) {
@@ -606,9 +752,11 @@
   }
 
   function initMain() {
+    initTheme();
     initSmoothScroll();
     initServiceModals();
     initAppointmentForm();
+    initScrollToTop();
     initGlobalListeners();
   }
 
@@ -618,6 +766,8 @@
   global.openServiceModal = openServiceModal;
   global.closeServiceModal = closeServiceModal;
   global.handleFormSubmit = handleFormSubmit;
+  global.toggleTheme = toggleTheme;
+  global.scrollToTop = scrollToTop;
   global.SugeyMain = {
     init: initMain,
     toggleMobileMenu: toggleMobileMenu,
@@ -628,7 +778,12 @@
     validateFormInputs: validateFormInputs,
     buildStructuredConsultationMessage: buildStructuredConsultationMessage,
     buildFormSubmitPayload: buildFormSubmitPayload,
-    sendEmailViaFormSubmit: sendEmailViaFormSubmit
+    sendEmailViaFormSubmit: sendEmailViaFormSubmit,
+    toggleTheme: toggleTheme,
+    applyTheme: applyTheme,
+    getActiveTheme: getActiveTheme,
+    scrollToTop: scrollToTop,
+    updateScrollToTopVisibility: updateScrollToTopVisibility
   };
 
   if (document.readyState === 'loading') {

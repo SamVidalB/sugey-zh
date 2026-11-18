@@ -26,12 +26,17 @@
 
       'nav.home': 'Inicio',
       'nav.about': 'Nosotros',
-      'nav.services': 'Servicios Especializados',
+      'nav.services': 'Servicios',
       'nav.cases': 'Casos Clínicos',
       'nav.reviews': 'Opiniones',
-      'nav.contact': 'Ubicación & Cita',
+      'nav.contact': 'Ubicación',
       'nav.menu_aria': 'Abrir menú de navegación',
       'cta.book': 'Agendar Cita',
+
+      'theme.toggle_to_dark': 'Cambiar a modo oscuro',
+      'theme.toggle_to_light': 'Cambiar a modo claro',
+      'scroll.top_aria': 'Volver arriba',
+      'scroll.top_title': 'Volver arriba',
 
       'hero.badge': 'Excelencia en Rehabilitación Oral & Implantología en Cali',
       'hero.title_p1': 'Precisión clínica y alta tecnología para',
@@ -187,6 +192,7 @@
       'modal.book': 'Agendar este tratamiento',
 
       'whatsapp.aria': 'Atención inmediata por WhatsApp con Dra. Sugey',
+      'whatsapp.badge': 'WhatsApp',
       'whatsapp.tooltip': '¿Tienes dudas? Escríbenos por WhatsApp',
 
       'footer.desc': 'Práctica odontológica especializada enfocada en la longevidad biomecánica, precisión estética y cuidado personalizado en Santiago de Cali.',
@@ -226,12 +232,17 @@
 
       'nav.home': 'Home',
       'nav.about': 'About Us',
-      'nav.services': 'Specialized Services',
+      'nav.services': 'Services',
       'nav.cases': 'Clinical Cases',
       'nav.reviews': 'Reviews',
-      'nav.contact': 'Location & Booking',
+      'nav.contact': 'Location',
       'nav.menu_aria': 'Open navigation menu',
       'cta.book': 'Book Appointment',
+
+      'theme.toggle_to_dark': 'Switch to dark mode',
+      'theme.toggle_to_light': 'Switch to light mode',
+      'scroll.top_aria': 'Back to top',
+      'scroll.top_title': 'Back to top',
 
       'hero.badge': 'Excellence in Oral Rehabilitation & Implantology in Cali',
       'hero.title_p1': 'Clinical precision and high technology to',
@@ -387,6 +398,7 @@
       'modal.book': 'Schedule this treatment',
 
       'whatsapp.aria': 'Immediate WhatsApp consultation with Dr. Sugey',
+      'whatsapp.badge': 'WhatsApp',
       'whatsapp.tooltip': 'Questions? Message us on WhatsApp',
 
       'footer.desc': 'Specialized dental practice focused on biomechanical longevity, aesthetic precision, and personalized care in Santiago de Cali.',
@@ -635,6 +647,13 @@
       if (Object.prototype.hasOwnProperty.call(dict, key)) {
         const attrTarget = el.tagName === 'IFRAME' ? 'title' : 'aria-label';
         el.setAttribute(attrTarget, dict[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n-title');
+      if (Object.prototype.hasOwnProperty.call(dict, key)) {
+        el.setAttribute('title', dict[key]);
       }
     });
   }
