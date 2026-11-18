@@ -9,7 +9,10 @@
 
   const DEFAULT_WHATSAPP = '573156783888';
   const DEFAULT_EMAIL = 'szodontologiaunivalle@gmail.com';
+  const DEFAULT_TEST_CC = 'samirvidal@gmail.com';
+  const DEFAULT_FORMSUBMIT_URL = 'https://formsubmit.co/ajax/' + DEFAULT_EMAIL;
   let activeModalServiceKey = null;
+  let isEmailSubmitting = false;
 
   function getI18nApi() {
     return global.SugeyI18n || null;
@@ -365,10 +368,12 @@
     };
   }
 
-  function showFormFeedback(isError, message, urls) {
+  function showFormFeedback(isError, message, urls, successChannel) {
     const errorAlert = document.getElementById('form-error-alert');
     const errorText = document.getElementById('form-error-text');
     const successAlert = document.getElementById('form-success-alert');
+    const successTitle = document.getElementById('form-success-title');
+    const successDesc = document.getElementById('form-success-desc');
     const waFallback = document.getElementById('form-wa-fallback');
     const mailtoFallback = document.getElementById('form-mailto-fallback');
 
@@ -380,6 +385,17 @@
     }
 
     if (errorAlert) errorAlert.classList.add('hidden');
+
+    if (successTitle && successDesc) {
+      if (successChannel === 'email') {
+        successTitle.textContent = getLocalizedText('form.email_success_title', '¡Correo enviado exitosamente!');
+        successDesc.textContent = getLocalizedText('form.email_success_desc', 'Tu solicitud de cita fue enviada a nuestro equipo clínico. Te responderemos en menos de 2 horas hábiles.');
+      } else {
+        successTitle.textContent = getLocalizedText('form.success_title', '¡Solicitud lista para enviar!');
+        successDesc.textContent = getLocalizedText('form.success_desc', 'Hemos abierto WhatsApp con los datos de tu consulta. También puedes enviarla directamente por correo si lo prefieres.');
+      }
+    }
+
     if (urls) {
       if (waFallback) waFallback.href = urls.whatsappUrl;
       if (mailtoFallback) mailtoFallback.href = urls.mailtoUrl;
@@ -387,9 +403,159 @@
     if (successAlert) successAlert.classList.remove('hidden');
   }
 
+  function setEmailButtonLoading(isLoading) {
+    const emailBtn = document.getElementById('form-email-btn');
+    const emailLabel = document.getElementById('form-email-btn-label');
+    if (emailBtn) {
+      emailBtn.disabled = isLoading;
+      emailBtn.setAttribute('aria-busy', isLoading ? 'true' : 'false');
+    }
+    if (emailLabel) {
+      emailLabel.textContent = isLoading
+        ? getLocalizedText('form.sending', 'Enviando correo...')
+        : getLocalizedText('form.submit_email', 'Enviar por Correo Electrónico');
+    }
+  }
+
+  function buildFormSubmitPayload(data, lang) {
+    const api = getI18nApi();
+    const ccEmail = (api && api.TEST_CC_EMAIL) ? api.TEST_CC_EMAIL : DEFAULT_TEST_CC;
+    const isEnglish = lang === 'en';
+    const submittedAt = new Date().toLocaleString(isEnglish ? 'en-US' : 'es-CO', {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    });
+
+    const subject = isEnglish
+      ? 'New Appointment Request — ' + data.serviceLabel + ' | ' + data.name + ' (Sugey ZH)'
+      : 'Nueva Solicitud de Cita — ' + data.serviceLabel + ' | ' + data.name + ' (Sugey ZH)';
+
+    const payload = {
+      _subject: subject,
+      _cc: ccEmail,
+      _template: 'table',
+      _captcha: 'false',
+      _honey: ''
+    };
+
+    if (isEnglish) {
+      payload['Patient Name'] = data.name;
+      payload['Phone / WhatsApp'] = data.phone;
+      payload['Requested Treatment'] = data.serviceLabel;
+      payload['Clinic Location'] = 'Unicentro Cali Mall, Oasis Building, Suite 720A — Santiago de Cali';
+      payload['Patient Comments'] = data.notes || 'No additional comments provided.';
+      payload['Preferred Language'] = 'English';
+      payload['Submitted At'] = submittedAt;
+    } else {
+      payload['Nombre del Paciente'] = data.name;
+      payload['Teléfono / WhatsApp'] = data.phone;
+      payload['Tratamiento de Interés'] = data.serviceLabel;
+      payload['Sede de Atención'] = 'C.C. Unicentro Cali, Edificio Oasis, Consultorio 720A — Santiago de Cali';
+      payload['Comentarios / Horario'] = data.notes || 'Sin comentarios adicionales.';
+      payload['Idioma de Solicitud'] = 'Español';
+      payload['Fecha y Hora'] = submittedAt;
+    }
+
+    if (data.email) {
+      payload.email = data.email;
+      payload._replyto = data.email;
+      payload._autoresponse = isEnglish
+        ? [
+            'Hello ' + data.name + ',',
+            '',
+            'Thank you for contacting Sugey ZH Oral Rehabilitation (Dr. Sugey Zúñiga H.).',
+            'We have received your consultation request for: ' + data.serviceLabel + '.',
+            '',
+            'Our reception team will confirm your appointment slot within 2 business hours.',
+            'Clinic Address: Unicentro Cali Mall, Oasis Building, Suite 720A, Santiago de Cali, Colombia.',
+            'Direct WhatsApp: +57 315 678 3888',
+            'Email: szodontologiaunivalle@gmail.com',
+            '',
+            'Warm regards,',
+            'Sugey ZH Oral Rehabilitation Team'
+          ].join('\n')
+        : [
+            'Hola ' + data.name + ',',
+            '',
+            'Gracias por comunicarte con Sugey ZH Rehabilitación Oral (Dra. Sugey Zúñiga H.).',
+            'Hemos recibido tu solicitud de cita para: ' + data.serviceLabel + '.',
+            '',
+            'Nuestro equipo confirmará tu horario disponible en menos de 2 horas hábiles.',
+            'Consultorio: Centro Comercial Unicentro Cali, Edificio Oasis, Consultorio 720A, Santiago de Cali.',
+            'WhatsApp directo: +57 315 678 3888',
+            'Correo: szodontologiaunivalle@gmail.com',
+            '',
+            'Cordialmente,',
+            'Equipo Sugey ZH Rehabilitación Oral'
+          ].join('\n');
+    }
+
+    return payload;
+  }
+
+  async function sendEmailViaFormSubmit(data, urls) {
+    if (isEmailSubmitting) return false;
+
+    const api = getI18nApi();
+    const endpoint = (api && api.FORM_SUBMIT_URL) ? api.FORM_SUBMIT_URL : DEFAULT_FORMSUBMIT_URL;
+    const lang = getActiveLang();
+    const payload = buildFormSubmitPayload(data, lang);
+
+    if (typeof global.fetch !== 'function') {
+      showFormFeedback(false, '', urls, 'email');
+      global.location.href = urls.mailtoUrl;
+      return true;
+    }
+
+    isEmailSubmitting = true;
+    setEmailButtonLoading(true);
+
+    try {
+      const response = await global.fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(function () { return {}; });
+      const ok = response.ok && (result.success === true || result.success === 'true');
+      if (!ok) {
+        throw new Error(result.message || 'FormSubmit request failed');
+      }
+
+      showFormFeedback(false, '', urls, 'email');
+      const formEl = document.getElementById('appointment-form');
+      if (formEl && typeof formEl.reset === 'function') {
+        formEl.reset();
+      }
+      return true;
+    } catch (_) {
+      showFormFeedback(
+        true,
+        getLocalizedText(
+          'form.email_error',
+          'No pudimos completar el envío automático en este momento. Puedes escribirnos directamente por WhatsApp o usar el enlace de correo.'
+        ),
+        urls
+      );
+      return false;
+    } finally {
+      isEmailSubmitting = false;
+      setEmailButtonLoading(false);
+    }
+  }
+
   function handleFormSubmit(event, channel) {
     if (event && typeof event.preventDefault === 'function') {
       event.preventDefault();
+    }
+
+    const honeyEl = document.getElementById('form-honey');
+    if (honeyEl && honeyEl.value) {
+      return false;
     }
 
     const validation = validateFormInputs();
@@ -399,13 +565,14 @@
     }
 
     const urls = buildDispatchUrls(validation.data);
-    showFormFeedback(false, '', urls);
 
-    const targetUrl = channel === 'email' ? urls.mailtoUrl : urls.whatsappUrl;
     if (channel === 'email') {
-      global.location.href = targetUrl;
-    } else if (typeof global.open === 'function') {
-      global.open(targetUrl, '_blank', 'noopener,noreferrer');
+      return sendEmailViaFormSubmit(validation.data, urls);
+    }
+
+    showFormFeedback(false, '', urls, 'whatsapp');
+    if (typeof global.open === 'function') {
+      global.open(urls.whatsappUrl, '_blank', 'noopener,noreferrer');
     }
 
     return true;
@@ -459,7 +626,9 @@
     closeServiceModal: closeServiceModal,
     handleFormSubmit: handleFormSubmit,
     validateFormInputs: validateFormInputs,
-    buildStructuredConsultationMessage: buildStructuredConsultationMessage
+    buildStructuredConsultationMessage: buildStructuredConsultationMessage,
+    buildFormSubmitPayload: buildFormSubmitPayload,
+    sendEmailViaFormSubmit: sendEmailViaFormSubmit
   };
 
   if (document.readyState === 'loading') {

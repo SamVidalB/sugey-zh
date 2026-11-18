@@ -954,7 +954,9 @@
               Nuestro equipo confirmará tu horario por WhatsApp o correo electrónico en menos de 2 horas hábiles.
             </p>
 
-            <form id="appointment-form" onsubmit="handleFormSubmit(event)" class="space-y-4" novalidate>
+            <form id="appointment-form" action="https://formsubmit.co/szodontologiaunivalle@gmail.com" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-4" novalidate>
+              <!-- Anti-spam honeypot field for FormSubmit -->
+              <input type="text" id="form-honey" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
               <!-- Full Name -->
               <label class="block space-y-1">
@@ -1006,9 +1008,9 @@
                   <span class="material-symbols-outlined text-[19px]" aria-hidden="true">send</span>
                   <span data-i18n="form.submit">Solicitar Cita por WhatsApp</span>
                 </button>
-                <button type="button" id="form-email-btn" class="sm:w-auto py-3.5 px-5 bg-white border border-light-outline hover:border-accent text-light-primary hover:text-accent rounded-full font-headline font-semibold text-sm transition-all duration-state-change flex items-center justify-center gap-2 cursor-pointer">
+                <button type="button" id="form-email-btn" class="sm:w-auto py-3.5 px-5 bg-white border border-light-outline hover:border-accent text-light-primary hover:text-accent rounded-full font-headline font-semibold text-sm transition-all duration-state-change flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-wait">
                   <span class="material-symbols-outlined text-[19px]" aria-hidden="true">mail</span>
-                  <span data-i18n="form.submit_email">Enviar por Correo Electrónico</span>
+                  <span id="form-email-btn-label" data-i18n="form.submit_email">Enviar por Correo Electrónico</span>
                 </button>
               </div>
 
@@ -1017,8 +1019,8 @@
                 <div class="flex items-start gap-3">
                   <span class="material-symbols-outlined text-[22px] text-emerald-600 shrink-0" aria-hidden="true">check_circle</span>
                   <div>
-                    <strong class="font-headline block" data-i18n="form.success_title">¡Solicitud lista para enviar!</strong>
-                    <span class="text-xs" data-i18n="form.success_desc">Hemos abierto WhatsApp con los datos de tu consulta. También puedes enviarla directamente por correo si lo prefieres.</span>
+                    <strong id="form-success-title" class="font-headline block" data-i18n="form.success_title">¡Solicitud lista para enviar!</strong>
+                    <span id="form-success-desc" class="text-xs" data-i18n="form.success_desc">Hemos abierto WhatsApp con los datos de tu consulta. También puedes enviarla directamente por correo si lo prefieres.</span>
                   </div>
                 </div>
                 <div class="flex flex-wrap gap-3 pl-8 text-xs font-headline font-semibold">

@@ -11,6 +11,8 @@
   const SUPPORTED_LANGS = ['es', 'en'];
   const WHATSAPP_PHONE = '573156783888';
   const CLINIC_EMAIL = 'szodontologiaunivalle@gmail.com';
+  const TEST_CC_EMAIL = 'samirvidal@gmail.com';
+  const FORM_SUBMIT_URL = 'https://formsubmit.co/ajax/' + CLINIC_EMAIL;
 
   const I18N_DICTIONARY = {
     es: {
@@ -161,10 +163,14 @@
       'form.msg_placeholder': 'Cuéntanos brevemente tu caso o si prefieres horario mañana o tarde...',
       'form.submit': 'Solicitar Cita por WhatsApp',
       'form.submit_email': 'Enviar por Correo Electrónico',
+      'form.sending': 'Enviando correo...',
       'form.err_required': 'Por favor ingresa tu nombre completo y un número de teléfono válido (mínimo 7 dígitos).',
       'form.err_email': 'Por favor ingresa un correo electrónico válido o deja el campo vacío.',
+      'form.email_error': 'No pudimos completar el envío automático en este momento. Puedes escribirnos directamente por WhatsApp o usar el enlace de correo.',
       'form.success_title': '¡Solicitud lista para enviar!',
       'form.success_desc': 'Hemos abierto WhatsApp con los datos de tu consulta. También puedes enviarla directamente por correo si lo prefieres.',
+      'form.email_success_title': '¡Correo enviado exitosamente!',
+      'form.email_success_desc': 'Tu solicitud de cita fue enviada a nuestro equipo clínico. Te responderemos en menos de 2 horas hábiles.',
 
       'loc.title': 'Información del Consultorio',
       'loc.addr_title': 'Dirección Exacta:',
@@ -357,10 +363,14 @@
       'form.msg_placeholder': 'Briefly describe your case or whether you prefer morning or afternoon appointments...',
       'form.submit': 'Request Appointment via WhatsApp',
       'form.submit_email': 'Send via Email',
+      'form.sending': 'Sending email...',
       'form.err_required': 'Please enter your full name and a valid phone number (at least 7 digits).',
       'form.err_email': 'Please enter a valid email address or leave the field blank.',
+      'form.email_error': 'We could not complete the automatic email delivery right now. Please contact us via WhatsApp or the direct email link.',
       'form.success_title': 'Request ready to send!',
       'form.success_desc': 'We have opened WhatsApp with your consultation details. You can also send it directly by email if you prefer.',
+      'form.email_success_title': 'Email sent successfully!',
+      'form.email_success_desc': 'Your appointment request has been delivered to our clinical team. We will reply within 2 business hours.',
 
       'loc.title': 'Clinic Information',
       'loc.addr_title': 'Exact Address:',
@@ -673,6 +683,8 @@
     DEFAULT_LANG: DEFAULT_LANG,
     WHATSAPP_PHONE: WHATSAPP_PHONE,
     CLINIC_EMAIL: CLINIC_EMAIL,
+    TEST_CC_EMAIL: TEST_CC_EMAIL,
+    FORM_SUBMIT_URL: FORM_SUBMIT_URL,
     dictionary: I18N_DICTIONARY,
     SERVICE_MODAL_DETAILS: SERVICE_MODAL_DETAILS,
     serviceDetails: SERVICE_MODAL_DETAILS,
