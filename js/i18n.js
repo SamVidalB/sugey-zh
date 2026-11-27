@@ -76,35 +76,30 @@
       'services.title': 'Servicios Especializados',
       'services.subtitle': 'Cinco áreas clínicas integradas con tecnología digital para restaurar tu salud y estética dental.',
 
-      'srv1.tag': 'Especialidad #1',
       'srv1.title': 'Implantología',
       'srv1.desc': 'Reemplazo de piezas perdidas con implantes de titanio y planificación digital 3D.',
       'srv1.f1': 'Implantes unitarios o múltiples',
       'srv1.f2': 'Guía tomográfica 3D',
       'srv1.f3': 'Recuperación predecible',
 
-      'srv2.tag': 'Especialidad #2',
       'srv2.title': 'Prostodoncia - Rehabilitación Oral',
       'srv2.desc': 'Reconstrucción funcional con coronas, puentes fijos y prótesis sobre implantes.',
       'srv2.f1': 'Prótesis fijas y sobre implantes',
       'srv2.f2': 'Equilibrio de mordida y ATM',
       'srv2.f3': 'Solución a desgaste y bruxismo',
 
-      'srv3.tag': 'Especialidad #3',
       'srv3.title': 'Odontología Estética: Diseño de Sonrisa (Carillas, Coronas)',
       'srv3.desc': 'Armonía dental con carillas ultrafinas y coronas cerámicas de aspecto 100% natural.',
       'srv3.f1': 'Carillas cerámicas y en resina',
       'srv3.f2': 'Coronas libres de metal',
       'srv3.f3': 'Prueba estética previa (Mock-up)',
 
-      'srv4.tag': 'Especialidad #4',
       'srv4.title': 'Periodoncia',
       'srv4.desc': 'Cuidado de encías y hueso de soporte para asegurar una base periodontal sana.',
       'srv4.f1': 'Control de gingivitis y periodontitis',
       'srv4.f2': 'Estética gingival y recesiones',
       'srv4.f3': 'Mantenimiento de implantes',
 
-      'srv5.tag': 'Especialidad #5',
       'srv5.title': 'Endodoncia',
       'srv5.desc': 'Tratamiento de conductos de alta precisión para aliviar el dolor y salvar tus dientes.',
       'srv5.f1': 'Instrumentación rotatoria 3D',
@@ -121,7 +116,6 @@
       'cases.label_before': 'Antes',
       'cases.range_aria': 'Deslizador para comparar antes y después del tratamiento',
 
-      'case.badge': 'Caso #104',
       'case.title': 'Rehabilitación Estética',
       'case.diag_title': 'Diagnóstico:',
       'case.diag_desc': 'Desgaste incisal por bruxismo, asimetría gingival y microfracturas.',
@@ -130,7 +124,6 @@
       'case.time_label': 'Duración:',
       'case.time_value': '3 sesiones',
       'case.doc_label': 'Especialista:',
-      'case.btn_quote': 'Evaluar mi caso',
 
       'reviews.badge': 'Confianza Verificada',
       'reviews.title': 'Opiniones en Google Maps',
@@ -287,35 +280,30 @@
       'services.title': 'Specialized Services',
       'services.subtitle': 'Five clinical disciplines united by digital workflows to restore function and aesthetics.',
 
-      'srv1.tag': 'Specialty #1',
       'srv1.title': 'Implantology',
       'srv1.desc': 'Missing-tooth replacement with titanium implants and 3D digital planning.',
       'srv1.f1': 'Single or multiple implants',
       'srv1.f2': '3D CBCT guidance',
       'srv1.f3': 'Predictable healing',
 
-      'srv2.tag': 'Specialty #2',
       'srv2.title': 'Prosthodontics',
       'srv2.desc': 'Functional restoration via crowns, bridges, and implant-supported prostheses.',
       'srv2.f1': 'Fixed & implant prosthetics',
       'srv2.f2': 'Bite & TMJ equilibration',
       'srv2.f3': 'Bruxism & wear recovery',
 
-      'srv3.tag': 'Specialty #3',
       'srv3.title': 'Aesthetic Dentistry: Smile Design (Veneers, Crowns)',
       'srv3.desc': 'Ultra-thin ceramic veneers and metal-free crowns for a natural, bright smile.',
       'srv3.f1': 'Ceramic & composite veneers',
       'srv3.f2': 'Metal-free crowns',
       'srv3.f3': 'Trial intraoral mock-up',
 
-      'srv4.tag': 'Specialty #4',
       'srv4.title': 'Periodontics',
       'srv4.desc': 'Gum and bone tissue therapy securing a healthy biological foundation.',
       'srv4.f1': 'Gum disease treatment',
       'srv4.f2': 'Esthetic gum sculpting',
       'srv4.f3': 'Implant maintenance',
 
-      'srv5.tag': 'Specialty #5',
       'srv5.title': 'Endodontics',
       'srv5.desc': 'Precision root canal therapy to relieve pain and preserve natural teeth.',
       'srv5.f1': 'Rotary 3D instrumentation',
@@ -332,7 +320,6 @@
       'cases.label_before': 'Before',
       'cases.range_aria': 'Slider to compare before and after treatment results',
 
-      'case.badge': 'Case #104',
       'case.title': 'Aesthetic Rehabilitation',
       'case.diag_title': 'Diagnosis:',
       'case.diag_desc': 'Bruxism incisal wear, gingival asymmetry, and enamel cracks.',
@@ -341,7 +328,6 @@
       'case.time_label': 'Timeline:',
       'case.time_value': '3 visits',
       'case.doc_label': 'Specialist:',
-      'case.btn_quote': 'Evaluate my case',
 
       'reviews.badge': 'Verified Trust',
       'reviews.title': 'Google Maps Reviews',
