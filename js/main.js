@@ -940,6 +940,67 @@
   }
 
   /* --------------------------------------------------------------------------
+   * 6D. Hero Key Metrics Count-Up Animation (+14, 100%, 5.0 ★)
+   * ------------------------------------------------------------------------ */
+  function formatCounterText(value, decimals, prefix, suffix) {
+    const formatted = decimals > 0 ? value.toFixed(decimals) : String(Math.round(value));
+    return (prefix || '') + formatted + (suffix || '');
+  }
+
+  function initHeroCounters(durationMs) {
+    const counters = document.querySelectorAll('[data-counter-target]');
+    if (!counters || !counters.length) return;
+
+    const items = [];
+    counters.forEach(function (el) {
+      const target = parseFloat(el.getAttribute('data-counter-target'));
+      if (isNaN(target)) return;
+      const decimals = parseInt(el.getAttribute('data-counter-decimals') || '0', 10) || 0;
+      const prefix = el.getAttribute('data-counter-prefix') || '';
+      const suffix = el.getAttribute('data-counter-suffix') || '';
+      items.push({ el: el, target: target, decimals: decimals, prefix: prefix, suffix: suffix });
+    });
+
+    if (!items.length) return;
+
+    if (typeof global.requestAnimationFrame !== 'function') {
+      items.forEach(function (item) {
+        item.el.textContent = formatCounterText(item.target, item.decimals, item.prefix, item.suffix);
+      });
+      return;
+    }
+
+    const totalDuration = typeof durationMs === 'number' ? durationMs : 1700;
+    const nowFn = (global.performance && typeof global.performance.now === 'function')
+      ? function () { return global.performance.now(); }
+      : function () { return Date.now(); };
+    const startTime = nowFn();
+
+    // Render starting 0 values immediately before first animation tick
+    items.forEach(function (item) {
+      item.el.textContent = formatCounterText(0, item.decimals, item.prefix, item.suffix);
+    });
+
+    function tick(timestamp) {
+      const currentTime = typeof timestamp === 'number' ? timestamp : nowFn();
+      const elapsed = Math.max(0, currentTime - startTime);
+      const progress = Math.min(1, elapsed / totalDuration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      items.forEach(function (item) {
+        const currentVal = progress >= 1 ? item.target : item.target * eased;
+        item.el.textContent = formatCounterText(currentVal, item.decimals, item.prefix, item.suffix);
+      });
+
+      if (progress < 1) {
+        global.requestAnimationFrame(tick);
+      }
+    }
+
+    global.requestAnimationFrame(tick);
+  }
+
+  /* --------------------------------------------------------------------------
    * 7. Global Keyboard & Viewport Listeners
    * ------------------------------------------------------------------------ */
   function initGlobalListeners() {
@@ -960,6 +1021,7 @@
   function initMain() {
     initTheme();
     initHeroVideo();
+    initHeroCounters();
     initAboutCarousel();
     initSmoothScroll();
     initServiceModals();
@@ -995,6 +1057,7 @@
     smoothScrollToY: smoothScrollToY,
     updateScrollToTopVisibility: updateScrollToTopVisibility,
     initHeroVideo: initHeroVideo,
+    initHeroCounters: initHeroCounters,
     initAboutCarousel: initAboutCarousel,
     goToAboutSlide: goToAboutSlide
   };
