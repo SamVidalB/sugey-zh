@@ -1059,6 +1059,70 @@
   }
 
   /* --------------------------------------------------------------------------
+   * 6F. Smooth Section-to-Section Depth Parallax (60fps RAF)
+   * ------------------------------------------------------------------------ */
+  let parallaxTicking = false;
+
+  function updateParallax() {
+    parallaxTicking = false;
+
+    if (typeof global.matchMedia === 'function' && global.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const elements = document.querySelectorAll('[data-parallax-speed]');
+    if (!elements || !elements.length) return;
+
+    const viewportH = global.innerHeight || (document.documentElement && document.documentElement.clientHeight) || 800;
+    const viewportW = global.innerWidth || (document.documentElement && document.documentElement.clientWidth) || 1024;
+    const isDesktop = viewportW >= 1024;
+    const viewportCenter = viewportH / 2;
+
+    elements.forEach(function (el) {
+      const desktopOnly = el.getAttribute('data-parallax-desktop') === 'true';
+      const scale = el.getAttribute('data-parallax-scale');
+
+      if (desktopOnly && !isDesktop) {
+        el.style.transform = scale ? ('scale(' + scale + ')') : '';
+        return;
+      }
+
+      if (typeof el.getBoundingClientRect !== 'function') return;
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < -120 || rect.top > viewportH + 120) {
+        return;
+      }
+
+      const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0') || 0;
+      const maxOffset = parseFloat(el.getAttribute('data-parallax-max') || '36') || 36;
+      const elCenter = rect.top + (rect.height / 2);
+      const rawOffset = (viewportCenter - elCenter) * speed;
+      const offset = Math.max(-maxOffset, Math.min(maxOffset, rawOffset));
+
+      el.style.transform = 'translate3d(0, ' + offset.toFixed(1) + 'px, 0)' + (scale ? (' scale(' + scale + ')') : '');
+    });
+  }
+
+  function scheduleParallaxUpdate() {
+    if (parallaxTicking) return;
+    parallaxTicking = true;
+    if (typeof global.requestAnimationFrame === 'function') {
+      global.requestAnimationFrame(updateParallax);
+    } else {
+      updateParallax();
+    }
+  }
+
+  function initParallax() {
+    const elements = document.querySelectorAll('[data-parallax-speed]');
+    if (!elements || !elements.length) return;
+
+    updateParallax();
+    global.addEventListener('scroll', scheduleParallaxUpdate, { passive: true });
+    global.addEventListener('resize', scheduleParallaxUpdate, { passive: true });
+  }
+
+  /* --------------------------------------------------------------------------
    * 7. Global Keyboard & Viewport Listeners
    * ------------------------------------------------------------------------ */
   function initGlobalListeners() {
@@ -1082,6 +1146,7 @@
     initHeroCounters();
     initAboutCarousel();
     initScrollReveal();
+    initParallax();
     initSmoothScroll();
     initServiceModals();
     initAppointmentForm();
@@ -1119,6 +1184,8 @@
     initHeroCounters: initHeroCounters,
     initAboutCarousel: initAboutCarousel,
     initScrollReveal: initScrollReveal,
+    initParallax: initParallax,
+    updateParallax: updateParallax,
     goToAboutSlide: goToAboutSlide
   };
 

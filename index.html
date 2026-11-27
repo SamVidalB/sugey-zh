@@ -362,18 +362,20 @@
 
     <!-- Hero Section: Full-Width Autoplay Video Header Banner -->
     <section id="inicio" class="relative overflow-hidden min-h-[480px] sm:min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-10 sm:py-14 bg-[#1E252D] text-white">
-      <!-- Full-Bleed Autoplay Background Video Layer (Bright & Clear) -->
+      <!-- Full-Bleed Autoplay Background Video Layer with Depth Parallax -->
       <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <video id="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="./assets/img/Consultorio.jpg" class="w-full h-full object-cover object-center brightness-110 contrast-[1.03]">
-          <source src="./assets/video/video.mp4" type="video/mp4">
-        </video>
+        <div id="hero-video-parallax" class="w-full h-full will-change-transform" data-parallax-speed="0.22" data-parallax-scale="1.14" data-parallax-max="56">
+          <video id="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="./assets/img/Consultorio.jpg" class="w-full h-full object-cover object-center brightness-110 contrast-[1.03]">
+            <source src="./assets/video/video.mp4" type="video/mp4">
+          </video>
+        </div>
         <!-- Subtle left-only gradient scrim so left copy reads cleanly while keeping the video bright and clear -->
         <div class="absolute inset-0 bg-gradient-to-r from-[#0D141D]/55 via-[#0D141D]/20 via-45% to-transparent"></div>
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <!-- Strictly Edge-Aligned & Justified Hero Copy Block -->
-        <div class="w-fit max-w-full space-y-5">
+        <div class="w-fit max-w-full space-y-5" data-parallax-speed="-0.08" data-parallax-max="26" data-parallax-desktop="true">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#20A496]/25 border border-[#20A496]/45 text-[#E6FFA3] backdrop-blur-sm text-xs font-headline font-semibold">
             <span class="w-2 h-2 rounded-full bg-[#E6FFA3] animate-pulse" aria-hidden="true"></span>
             <span data-i18n="hero.badge">Rehabilitación Oral &amp; Implantología · Cali</span>
@@ -427,13 +429,19 @@
     </section>
 
     <!-- Doctor & Philosophy Section ("Nosotros / About Us") -->
-    <section id="nosotros" class="py-20 bg-light-surface-card dark:bg-[#18202B] border-y border-light-outline/60 dark:border-[#2E3D52] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="nosotros" class="relative py-20 bg-light-surface-card dark:bg-[#18202B] border-y border-light-outline/60 dark:border-[#2E3D52] transition-colors duration-200">
+      <!-- Subtle Clinical Parallax Ambient Accents -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-accent-light/35 dark:bg-[#20A496]/10 blur-3xl" data-parallax-speed="0.16" data-parallax-max="44"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-light-surface-subtle dark:bg-[#253242]/45 blur-3xl" data-parallax-speed="-0.14" data-parallax-max="40"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           <!-- Doctor Portrait Carousel (3 Photos, Auto-Slide 5s + Manual Controls) with Architectural Minimal Frame -->
           <div class="lg:col-span-5 order-2 lg:order-1 relative" data-reveal>
-            <div class="relative mx-auto max-w-md">
+            <div class="relative mx-auto max-w-md" data-parallax-speed="-0.06" data-parallax-max="24" data-parallax-desktop="true">
               <div class="absolute -inset-4 bg-light-surface-subtle dark:bg-[#253242] rounded-3xl -rotate-2 -z-10 border border-light-outline dark:border-[#2E3D52]"></div>
 
               <!-- Horizontal Sliding 3-Image Carousel -->
@@ -541,8 +549,14 @@
     </section>
 
     <!-- Specialized Dental Services Section -->
-    <section id="servicios" class="py-20 lg:py-28 bg-light-surface dark:bg-[#121820] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="servicios" class="relative py-20 lg:py-28 bg-light-surface dark:bg-[#121820] transition-colors duration-200">
+      <!-- Subtle Clinical Parallax Ambient Accents -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-16 -left-28 w-96 h-96 rounded-full bg-accent-light/30 dark:bg-[#20A496]/10 blur-3xl" data-parallax-speed="0.18" data-parallax-max="48"></div>
+        <div class="absolute bottom-12 -right-28 w-96 h-96 rounded-full bg-accent-light/25 dark:bg-[#253242]/35 blur-3xl" data-parallax-speed="-0.16" data-parallax-max="44"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3" data-reveal>
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] text-xs font-headline font-semibold">
@@ -564,7 +578,9 @@
           <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="0">
             <div>
               <div class="h-48 overflow-hidden relative">
-                <img src="./assets/img/Implantologia.jpg" alt="Implantología dental guiada por tomografía 3D" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full h-full will-change-transform" data-parallax-speed="0.09" data-parallax-scale="1.14" data-parallax-max="18">
+                  <img src="./assets/img/Implantologia.jpg" alt="Implantología dental guiada por tomografía 3D" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="absolute top-3 left-3 bg-white/90 dark:bg-[#121820]/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary dark:text-[#FAFAF7] border border-transparent dark:border-[#2E3D52]" data-i18n="srv1.tag">
                   Especialidad #1
                 </div>
@@ -595,7 +611,9 @@
           <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="80">
             <div>
               <div class="h-48 overflow-hidden relative">
-                <img src="./assets/img/Prostodoncia.jpg" alt="Prostodoncia y rehabilitación oral funcional" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full h-full will-change-transform" data-parallax-speed="0.09" data-parallax-scale="1.14" data-parallax-max="18">
+                  <img src="./assets/img/Prostodoncia.jpg" alt="Prostodoncia y rehabilitación oral funcional" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="absolute top-3 left-3 bg-white/90 dark:bg-[#121820]/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary dark:text-[#FAFAF7] border border-transparent dark:border-[#2E3D52]" data-i18n="srv2.tag">
                   Especialidad #2
                 </div>
@@ -626,7 +644,9 @@
           <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="160">
             <div>
               <div class="h-48 overflow-hidden relative">
-                <img src="./assets/img/Odontologia.jpg" alt="Odontología estética, diseño de sonrisa, carillas y coronas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full h-full will-change-transform" data-parallax-speed="0.09" data-parallax-scale="1.14" data-parallax-max="18">
+                  <img src="./assets/img/Odontologia.jpg" alt="Odontología estética, diseño de sonrisa, carillas y coronas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="absolute top-3 left-3 bg-white/90 dark:bg-[#121820]/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary dark:text-[#FAFAF7] border border-transparent dark:border-[#2E3D52]" data-i18n="srv3.tag">
                   Especialidad #3
                 </div>
@@ -657,7 +677,9 @@
           <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="80">
             <div>
               <div class="h-48 overflow-hidden relative">
-                <img src="./assets/img/Consultorio.jpg" alt="Periodoncia y salud de encías" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full h-full will-change-transform" data-parallax-speed="0.09" data-parallax-scale="1.14" data-parallax-max="18">
+                  <img src="./assets/img/Consultorio.jpg" alt="Periodoncia y salud de encías" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="absolute top-3 left-3 bg-white/90 dark:bg-[#121820]/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary dark:text-[#FAFAF7] border border-transparent dark:border-[#2E3D52]" data-i18n="srv4.tag">
                   Especialidad #4
                 </div>
@@ -688,7 +710,9 @@
           <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="160">
             <div>
               <div class="h-48 overflow-hidden relative">
-                <img src="./assets/img/Despues.jpeg" alt="Endodoncia mecanizada de alta precisión" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full h-full will-change-transform" data-parallax-speed="0.09" data-parallax-scale="1.14" data-parallax-max="18">
+                  <img src="./assets/img/Despues.jpeg" alt="Endodoncia mecanizada de alta precisión" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
                 <div class="absolute top-3 left-3 bg-white/90 dark:bg-[#121820]/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-headline font-semibold text-light-primary dark:text-[#FAFAF7] border border-transparent dark:border-[#2E3D52]" data-i18n="srv5.tag">
                   Especialidad #5
                 </div>
@@ -721,8 +745,13 @@
     </section>
 
     <!-- Interactive Before & After Case Gallery with Slider -->
-    <section id="casos" class="py-20 lg:py-28 bg-light-surface-card dark:bg-[#18202B] border-t border-light-outline dark:border-[#2E3D52] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="casos" class="relative py-20 lg:py-28 bg-light-surface-card dark:bg-[#18202B] border-t border-light-outline dark:border-[#2E3D52] transition-colors duration-200">
+      <!-- Subtle Clinical Parallax Ambient Accents -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-24 left-1/3 w-80 h-80 rounded-full bg-accent-light/30 dark:bg-[#20A496]/10 blur-3xl" data-parallax-speed="-0.15" data-parallax-max="42"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6" data-reveal>
           <div class="space-y-2">
@@ -751,7 +780,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             <!-- Interactive Slider Box (Col 8) -->
-            <div class="lg:col-span-8">
+            <div class="lg:col-span-8" data-parallax-speed="-0.04" data-parallax-max="20" data-parallax-desktop="true">
               <div id="slider-wrapper" class="comparison-slider-container relative rounded-2xl overflow-hidden aspect-[16/9] shadow-md border border-light-outline dark:border-[#2E3D52] bg-black select-none">
 
                 <!-- "After" Image (Background Layer) -->
@@ -781,7 +810,7 @@
             </div>
 
             <!-- Case Clinical Information Card (Col 4) -->
-            <div class="lg:col-span-4 space-y-5">
+            <div class="lg:col-span-4 space-y-5" data-parallax-speed="0.05" data-parallax-max="22" data-parallax-desktop="true">
               <div class="inline-block px-3 py-1 rounded-md bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#E6FFA3] text-xs font-headline font-bold" data-i18n="case.badge">
                 Caso #104
               </div>
@@ -826,8 +855,13 @@
     </section>
 
     <!-- Google Reviews & Patient Trust Management Section -->
-    <section id="testimonios" class="py-20 lg:py-28 bg-light-surface dark:bg-[#121820] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonios" class="relative py-20 lg:py-28 bg-light-surface dark:bg-[#121820] transition-colors duration-200">
+      <!-- Subtle Clinical Parallax Ambient Accents -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-12 right-12 w-72 h-72 rounded-full bg-accent-light/30 dark:bg-[#20A496]/10 blur-3xl" data-parallax-speed="0.16" data-parallax-max="40"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Section Title & Google Maps Rating Overview Header -->
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 pb-8 border-b border-light-outline dark:border-[#2E3D52]" data-reveal>
@@ -845,7 +879,7 @@
           </div>
 
           <!-- Google Score Floating Widget Card -->
-          <div class="bg-white dark:bg-[#1E2836] rounded-2xl p-5 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex items-center gap-6 shrink-0">
+          <div class="bg-white dark:bg-[#1E2836] rounded-2xl p-5 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex items-center gap-6 shrink-0" data-parallax-speed="-0.05" data-parallax-max="18" data-parallax-desktop="true">
             <div class="flex flex-col items-center justify-center">
               <!-- Google Multicolor Logo -->
               <svg class="h-6 mb-1.5" viewBox="0 0 24 24" aria-label="Google">
@@ -1004,8 +1038,13 @@
     </section>
 
     <!-- Conversion, Appointment Booking & Location Map Section -->
-    <section id="contacto" class="py-20 lg:py-28 bg-light-surface-card dark:bg-[#18202B] border-t border-light-outline dark:border-[#2E3D52] transition-colors duration-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contacto" class="relative py-20 lg:py-28 bg-light-surface-card dark:bg-[#18202B] border-t border-light-outline dark:border-[#2E3D52] transition-colors duration-200">
+      <!-- Subtle Clinical Parallax Ambient Accents -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute bottom-10 -left-24 w-96 h-96 rounded-full bg-accent-light/30 dark:bg-[#20A496]/10 blur-3xl" data-parallax-speed="-0.16" data-parallax-max="44"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3" data-reveal>
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] text-xs font-headline font-semibold">
@@ -1112,7 +1151,7 @@
           <!-- Right: Clinic Address, Contact Info & Embedded Interactive Google Map -->
           <div class="lg:col-span-6 space-y-6" data-reveal data-reveal-delay="100">
 
-            <div class="bg-white dark:bg-[#1E2836] p-8 rounded-3xl border border-light-outline dark:border-[#2E3D52] shadow-ambient space-y-6">
+            <div class="bg-white dark:bg-[#1E2836] p-8 rounded-3xl border border-light-outline dark:border-[#2E3D52] shadow-ambient space-y-6" data-parallax-speed="-0.04" data-parallax-max="18" data-parallax-desktop="true">
               <h3 class="font-headline font-bold text-xl text-light-primary dark:text-[#FAFAF7]" data-i18n="loc.title">
                 Consultorio Cali
               </h3>
