@@ -51,10 +51,6 @@
       'hero.card_doc_sub': 'Rehabilitación Oral',
       'hero.card_doc_desc': 'Prostodoncia e Implantología',
       'hero.tag_tech': 'Scanner 3D CAD/CAM',
-      'hero.video_unmute': 'Activar sonido del video',
-      'hero.video_mute': 'Silenciar video',
-      'hero.video_pause': 'Pausar video',
-      'hero.video_play': 'Reproducir video',
 
       'about.badge': 'Especialista & Consultorio',
       'about.title': 'Ciencia, estética y empatía para tu bienestar bucal',
@@ -266,10 +262,6 @@
       'hero.card_doc_sub': 'Oral Rehabilitation',
       'hero.card_doc_desc': 'Prosthodontics & Implantology',
       'hero.tag_tech': '3D CAD/CAM Scanner',
-      'hero.video_unmute': 'Unmute video',
-      'hero.video_mute': 'Mute video',
-      'hero.video_pause': 'Pause video',
-      'hero.video_play': 'Play video',
 
       'about.badge': 'Specialist & Practice',
       'about.title': 'Science, aesthetics, and empathy for your oral health',
