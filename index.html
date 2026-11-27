@@ -231,6 +231,27 @@
         text-align-last: justify;
       }
     }
+
+    /* Subtle Clinical Scroll-Reveal Animations */
+    html.reveal-ready [data-reveal] {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+      transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    html.reveal-ready [data-reveal].is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      will-change: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html.reveal-ready [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-light-surface text-light-on-surface dark:bg-[#121820] dark:text-[#FAFAF7] font-body antialiased min-h-screen selection:bg-accent selection:text-white transition-colors duration-200">
@@ -411,7 +432,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           <!-- Doctor Portrait Carousel (3 Photos, Auto-Slide 5s + Manual Controls) with Architectural Minimal Frame -->
-          <div class="lg:col-span-5 order-2 lg:order-1 relative">
+          <div class="lg:col-span-5 order-2 lg:order-1 relative" data-reveal>
             <div class="relative mx-auto max-w-md">
               <div class="absolute -inset-4 bg-light-surface-subtle dark:bg-[#253242] rounded-3xl -rotate-2 -z-10 border border-light-outline dark:border-[#2E3D52]"></div>
 
@@ -452,7 +473,7 @@
           </div>
 
           <!-- Doctor Credentials and Philosophy Narrative -->
-          <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-6" data-reveal data-reveal-delay="80">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-surface-subtle dark:bg-[#253242] text-light-on-surface-variant dark:text-[#CBD5E1] text-xs font-headline font-semibold">
               <span class="material-symbols-outlined text-accent dark:text-[#20A496] text-[16px]" aria-hidden="true">stethoscope</span>
               <span data-i18n="about.badge">Especialista &amp; Consultorio</span>
@@ -472,7 +493,7 @@
 
             <!-- Core Pillars Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5">
+              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5" data-reveal data-reveal-delay="0">
                 <div class="w-10 h-10 rounded-lg bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[22px]" aria-hidden="true">architecture</span>
                 </div>
@@ -482,7 +503,7 @@
                 </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5">
+              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5" data-reveal data-reveal-delay="70">
                 <div class="w-10 h-10 rounded-lg bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[22px]" aria-hidden="true">health_and_safety</span>
                 </div>
@@ -492,7 +513,7 @@
                 </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5">
+              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5" data-reveal data-reveal-delay="140">
                 <div class="w-10 h-10 rounded-lg bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[22px]" aria-hidden="true">mood</span>
                 </div>
@@ -502,7 +523,7 @@
                 </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5">
+              <div class="p-4 rounded-xl bg-light-surface dark:bg-[#1E2836] border border-light-outline/80 dark:border-[#2E3D52] flex items-start gap-3.5" data-reveal data-reveal-delay="210">
                 <div class="w-10 h-10 rounded-lg bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[22px]" aria-hidden="true">diamond</span>
                 </div>
@@ -523,7 +544,7 @@
     <section id="servicios" class="py-20 lg:py-28 bg-light-surface dark:bg-[#121820] transition-colors duration-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3" data-reveal>
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] text-xs font-headline font-semibold">
             <span class="material-symbols-outlined text-[16px]" aria-hidden="true">dentistry</span>
             <span data-i18n="services.badge">Especialidades</span>
@@ -540,7 +561,7 @@
         <div class="flex flex-wrap justify-center gap-8">
 
           <!-- Service 1: Implantología -->
-          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="0">
             <div>
               <div class="h-48 overflow-hidden relative">
                 <img src="./assets/img/Implantologia.jpg" alt="Implantología dental guiada por tomografía 3D" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -571,7 +592,7 @@
           </article>
 
           <!-- Service 2: Prostodoncia - Rehabilitación Oral -->
-          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="80">
             <div>
               <div class="h-48 overflow-hidden relative">
                 <img src="./assets/img/Prostodoncia.jpg" alt="Prostodoncia y rehabilitación oral funcional" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -602,7 +623,7 @@
           </article>
 
           <!-- Service 3: Odontología Estética: Diseño de Sonrisa (Carillas, Coronas) -->
-          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="160">
             <div>
               <div class="h-48 overflow-hidden relative">
                 <img src="./assets/img/Odontologia.jpg" alt="Odontología estética, diseño de sonrisa, carillas y coronas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -633,7 +654,7 @@
           </article>
 
           <!-- Service 4: Periodoncia -->
-          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="80">
             <div>
               <div class="h-48 overflow-hidden relative">
                 <img src="./assets/img/Consultorio.jpg" alt="Periodoncia y salud de encías" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -664,7 +685,7 @@
           </article>
 
           <!-- Service 5: Endodoncia -->
-          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group">
+          <article class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] bg-white dark:bg-[#1E2836] rounded-2xl overflow-hidden border border-light-outline dark:border-[#2E3D52] hover:border-accent/40 dark:hover:border-[#20A496]/60 shadow-ambient hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group" data-reveal data-reveal-delay="160">
             <div>
               <div class="h-48 overflow-hidden relative">
                 <img src="./assets/img/Despues.jpeg" alt="Endodoncia mecanizada de alta precisión" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -703,7 +724,7 @@
     <section id="casos" class="py-20 lg:py-28 bg-light-surface-card dark:bg-[#18202B] border-t border-light-outline dark:border-[#2E3D52] transition-colors duration-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6" data-reveal>
           <div class="space-y-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] text-xs font-headline font-semibold">
               <span class="material-symbols-outlined text-[16px]" aria-hidden="true">auto_fix_high</span>
@@ -726,7 +747,7 @@
         </div>
 
         <!-- Main Interactive Comparison Component -->
-        <div class="bg-light-surface dark:bg-[#1E2836] rounded-3xl p-4 sm:p-8 border border-light-outline dark:border-[#2E3D52] shadow-lg">
+        <div class="bg-light-surface dark:bg-[#1E2836] rounded-3xl p-4 sm:p-8 border border-light-outline dark:border-[#2E3D52] shadow-lg" data-reveal data-reveal-delay="80">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             <!-- Interactive Slider Box (Col 8) -->
@@ -809,7 +830,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Section Title & Google Maps Rating Overview Header -->
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 pb-8 border-b border-light-outline dark:border-[#2E3D52]">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-16 pb-8 border-b border-light-outline dark:border-[#2E3D52]" data-reveal>
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] text-xs font-headline font-semibold mb-3">
               <span class="material-symbols-outlined text-[16px]" aria-hidden="true">reviews</span>
@@ -860,7 +881,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             <!-- Review 1 -->
-            <article class="bg-white dark:bg-[#1E2836] rounded-2xl p-6 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex flex-col justify-between hover:shadow-md transition-shadow">
+            <article class="bg-white dark:bg-[#1E2836] rounded-2xl p-6 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex flex-col justify-between hover:shadow-md transition-shadow" data-reveal data-reveal-delay="0">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center text-amber-500" aria-label="5 de 5 estrellas">
@@ -899,7 +920,7 @@
             </article>
 
             <!-- Review 2 -->
-            <article class="bg-white dark:bg-[#1E2836] rounded-2xl p-6 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex flex-col justify-between hover:shadow-md transition-shadow">
+            <article class="bg-white dark:bg-[#1E2836] rounded-2xl p-6 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex flex-col justify-between hover:shadow-md transition-shadow" data-reveal data-reveal-delay="90">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center text-amber-500" aria-label="5 de 5 estrellas">
@@ -938,7 +959,7 @@
             </article>
 
             <!-- Review 3 -->
-            <article class="bg-white dark:bg-[#1E2836] rounded-2xl p-6 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex flex-col justify-between hover:shadow-md transition-shadow">
+            <article class="bg-white dark:bg-[#1E2836] rounded-2xl p-6 border border-light-outline dark:border-[#2E3D52] shadow-ambient flex flex-col justify-between hover:shadow-md transition-shadow" data-reveal data-reveal-delay="180">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center text-amber-500" aria-label="5 de 5 estrellas">
@@ -986,7 +1007,7 @@
     <section id="contacto" class="py-20 lg:py-28 bg-light-surface-card dark:bg-[#18202B] border-t border-light-outline dark:border-[#2E3D52] transition-colors duration-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3" data-reveal>
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-light dark:bg-[#20A496]/15 text-accent dark:text-[#20A496] text-xs font-headline font-semibold">
             <span class="material-symbols-outlined text-[16px]" aria-hidden="true">pin_drop</span>
             <span data-i18n="contact.badge">Ubicación &amp; Citas</span>
@@ -1002,7 +1023,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           <!-- Left: Functional Appointment Booking Form -->
-          <div class="lg:col-span-6 bg-white dark:bg-[#1E2836] p-8 sm:p-10 rounded-3xl border border-light-outline dark:border-[#2E3D52] shadow-lg">
+          <div class="lg:col-span-6 bg-white dark:bg-[#1E2836] p-8 sm:p-10 rounded-3xl border border-light-outline dark:border-[#2E3D52] shadow-lg" data-reveal data-reveal-delay="0">
             <h3 class="font-headline font-bold text-2xl text-light-primary dark:text-[#FAFAF7] mb-2" data-i18n="form.title">
               Solicitar Cita
             </h3>
@@ -1089,7 +1110,7 @@
           </div>
 
           <!-- Right: Clinic Address, Contact Info & Embedded Interactive Google Map -->
-          <div class="lg:col-span-6 space-y-6">
+          <div class="lg:col-span-6 space-y-6" data-reveal data-reveal-delay="100">
 
             <div class="bg-white dark:bg-[#1E2836] p-8 rounded-3xl border border-light-outline dark:border-[#2E3D52] shadow-ambient space-y-6">
               <h3 class="font-headline font-bold text-xl text-light-primary dark:text-[#FAFAF7]" data-i18n="loc.title">
@@ -1208,7 +1229,7 @@
   <!-- Corporate Footer -->
   <footer class="bg-light-primary dark:bg-[#0D1218] text-white pt-16 pb-12 border-t border-white/10 dark:border-[#2E3D52]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10" data-reveal>
 
         <!-- Brand Summary (Real Client Brandmark contrasted for dark Footer) -->
         <div class="space-y-4">

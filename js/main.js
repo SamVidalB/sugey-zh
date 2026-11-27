@@ -970,7 +970,7 @@
       return;
     }
 
-    const totalDuration = typeof durationMs === 'number' ? durationMs : 1700;
+    const totalDuration = typeof durationMs === 'number' ? durationMs : 2800;
     const nowFn = (global.performance && typeof global.performance.now === 'function')
       ? function () { return global.performance.now(); }
       : function () { return Date.now(); };
@@ -985,7 +985,7 @@
       const currentTime = typeof timestamp === 'number' ? timestamp : nowFn();
       const elapsed = Math.max(0, currentTime - startTime);
       const progress = Math.min(1, elapsed / totalDuration);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const eased = 1 - Math.pow(1 - progress, 2);
 
       items.forEach(function (item) {
         const currentVal = progress >= 1 ? item.target : item.target * eased;
@@ -998,6 +998,64 @@
     }
 
     global.requestAnimationFrame(tick);
+  }
+
+  /* --------------------------------------------------------------------------
+   * 6E. Subtle Clinical Scroll-Reveal Animations
+   * ------------------------------------------------------------------------ */
+  function revealElement(el) {
+    if (!el || el.classList.contains('is-visible')) return;
+    const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10) || 0;
+    if (delay > 0) {
+      el.style.transitionDelay = delay + 'ms';
+    }
+    el.classList.add('is-visible');
+    if (typeof global.setTimeout === 'function') {
+      global.setTimeout(function () {
+        el.style.transitionDelay = '';
+        el.removeAttribute('data-reveal');
+        el.classList.remove('is-visible');
+      }, delay + 750);
+    }
+  }
+
+  function initScrollReveal() {
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (!targets || !targets.length) return;
+
+    const root = document.documentElement;
+    if (typeof global.IntersectionObserver !== 'function') {
+      targets.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    if (root && root.classList) {
+      root.classList.add('reveal-ready');
+    }
+
+    const observer = new global.IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          revealElement(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -36px 0px'
+    });
+
+    const viewportH = global.innerHeight || (root && root.clientHeight) || 800;
+    targets.forEach(function (el) {
+      const rect = typeof el.getBoundingClientRect === 'function' ? el.getBoundingClientRect() : null;
+      if (rect && rect.top < viewportH * 0.95) {
+        revealElement(el);
+      } else {
+        observer.observe(el);
+      }
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -1023,6 +1081,7 @@
     initHeroVideo();
     initHeroCounters();
     initAboutCarousel();
+    initScrollReveal();
     initSmoothScroll();
     initServiceModals();
     initAppointmentForm();
@@ -1059,6 +1118,7 @@
     initHeroVideo: initHeroVideo,
     initHeroCounters: initHeroCounters,
     initAboutCarousel: initAboutCarousel,
+    initScrollReveal: initScrollReveal,
     goToAboutSlide: goToAboutSlide
   };
 
