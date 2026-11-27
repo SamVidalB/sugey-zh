@@ -853,9 +853,9 @@
         dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         if (isActive) {
           dot.classList.remove('w-2', 'bg-white/55');
-          dot.classList.add('w-5', 'bg-[#E6FFA3]');
+          dot.classList.add('w-5', 'bg-[#E5D8C5]');
         } else {
-          dot.classList.remove('w-5', 'bg-[#E6FFA3]');
+          dot.classList.remove('w-5', 'bg-[#E5D8C5]');
           dot.classList.add('w-2', 'bg-white/55');
         }
       });
