@@ -1015,7 +1015,7 @@
         el.style.transitionDelay = '';
         el.removeAttribute('data-reveal');
         el.classList.remove('is-visible');
-      }, delay + 750);
+      }, delay + 950);
     }
   }
 
@@ -1043,19 +1043,35 @@
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -36px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -12% 0px'
     });
+
+    function checkVisibleTargetsOnScroll() {
+      const vh = global.innerHeight || (root && root.clientHeight) || 800;
+      targets.forEach(function (el) {
+        if (el.classList.contains('is-visible') || !el.hasAttribute('data-reveal')) return;
+        const rect = typeof el.getBoundingClientRect === 'function' ? el.getBoundingClientRect() : null;
+        if (rect && rect.top <= vh * 0.88 && rect.bottom >= 0) {
+          revealElement(el);
+          observer.unobserve(el);
+        }
+      });
+    }
 
     const viewportH = global.innerHeight || (root && root.clientHeight) || 800;
     targets.forEach(function (el) {
       const rect = typeof el.getBoundingClientRect === 'function' ? el.getBoundingClientRect() : null;
-      if (rect && rect.top < viewportH * 0.95) {
+      // Only auto-reveal elements already well inside upper 60% of viewport on load;
+      // sections below the hero stay poised until the user actually scrolls to them.
+      if (rect && rect.bottom > 0 && rect.top < viewportH * 0.60) {
         revealElement(el);
       } else {
         observer.observe(el);
       }
     });
+
+    global.addEventListener('scroll', checkVisibleTargetsOnScroll, { passive: true });
   }
 
   /* --------------------------------------------------------------------------
